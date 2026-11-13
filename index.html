@@ -43,7 +43,8 @@
   /* hero: carousel on one side, intro on the other (stacks on small screens) */
   .hero{max-width:1180px;margin:0 auto;padding:56px 24px 84px;display:grid;grid-template-columns:1.05fr 1fr;gap:56px;align-items:start}
   .carousel{position:sticky;top:96px}
-  @media(max-width:900px){.hero{grid-template-columns:1fr;gap:40px;padding-top:36px}.carousel{position:static}}
+  @media(max-width:1000px){.hero{gap:32px;padding-top:40px}}
+  @media(max-width:640px){.hero{grid-template-columns:1fr;gap:36px;padding-top:32px}.carousel{position:static}}
   .frame{position:relative;aspect-ratio:4/3;border-radius:18px;overflow:hidden;background:#140a13;box-shadow:0 24px 60px rgba(30,6,26,.35)}
   .slide{position:absolute;inset:0;margin:0;opacity:0;transition:opacity .9s ease}
   .slide.on{opacity:1}
