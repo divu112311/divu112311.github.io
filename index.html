@@ -3,269 +3,245 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Divya Mahajan · AI Product Leader</title>
-<meta name="description" content="Divya Mahajan builds AI-native products from zero to first customers: agentic AI, LLM products, and startup execution.">
-<meta property="og:title" content="Divya Mahajan · AI Product Leader">
-<meta property="og:description" content="Building AI-native products from zero to first customers.">
+<title>Divya Mahajan</title>
+<meta name="description" content="Divya Mahajan: AI, product and technology leader, advisor and speaker in San Francisco.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
   :root{
-    --bg:#07080c; --bg2:#0d0f16; --card:#11141d; --line:#1f2431;
-    --text:#e9ecf3; --muted:#9aa3b5; --dim:#6b7385;
-    --a1:#8b5cf6; --a2:#22d3ee; --a3:#f472b6;
-    --grad:linear-gradient(120deg,var(--a1),var(--a2));
-    --r:18px; --max:1080px;
+    /* palette taken from Divya's Substack: plum + clean white */
+    --plum:#68215e; --plum-deep:#4e1847; --plum-mid:#8a3f7f;
+    --lilac:#f0d9ec; --lilac-2:#e3bfdc;
+    --paper:#ffffff; --paper-2:#faf6f9; --line:#ece4ea;
+    --ink:#2b2a2b; --ink-soft:#6c6a6c;
+    --on-plum:#fff; --on-plum-soft:rgba(255,255,255,.8);
   }
   *{box-sizing:border-box;margin:0;padding:0}
   html{scroll-behavior:smooth}
-  body{background:var(--bg);color:var(--text);font-family:Inter,system-ui,sans-serif;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
-  a{color:inherit;text-decoration:none}
-  .wrap{max-width:var(--max);margin:0 auto;padding:0 24px}
-  .mono{font-family:"JetBrains Mono",monospace}
+  body{background:var(--paper);color:var(--ink);font-family:Inter,system-ui,sans-serif;font-size:17px;line-height:1.7;-webkit-font-smoothing:antialiased}
+  a{color:inherit}
+  .wrap{max-width:880px;margin:0 auto;padding:0 24px}
 
-  /* glow background */
-  .glow{position:fixed;inset:-20%;z-index:-1;pointer-events:none;
-    background:radial-gradient(600px 400px at 15% 10%,rgba(139,92,246,.22),transparent 70%),
-               radial-gradient(500px 400px at 85% 25%,rgba(34,211,238,.14),transparent 70%),
-               radial-gradient(600px 500px at 50% 100%,rgba(244,114,182,.08),transparent 70%)}
-  .grid-bg{position:fixed;inset:0;z-index:-1;pointer-events:none;opacity:.35;
-    background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);
-    background-size:64px 64px;mask-image:radial-gradient(ellipse at 50% 0%,#000 20%,transparent 70%)}
+  /* header */
+  header{background:var(--paper);position:sticky;top:0;z-index:5;border-bottom:1px solid var(--line)}
+  header .wrap{display:flex;justify-content:space-between;align-items:center;height:68px}
+  .mark{display:flex;align-items:center;gap:10px;text-decoration:none}
+  .mono{font-family:Lora,Georgia,serif;font-weight:600;font-size:1.25rem;letter-spacing:-.02em;color:var(--plum);border:1.5px solid var(--plum);border-radius:8px;width:44px;height:40px;display:flex;align-items:center;justify-content:center;white-space:nowrap}
+  .mono b{color:var(--ink);font-weight:600}
+  .mark span{font-size:.78rem;letter-spacing:.2em;text-transform:uppercase;font-weight:600;color:var(--ink)}
+  header nav{display:flex;gap:26px;font-size:.92rem;font-weight:500}
+  header nav a{text-decoration:none;color:var(--ink-soft)}
+  header nav a:hover{color:var(--plum)}
+  @media(max-width:600px){.mark span{display:none}header nav{gap:16px;font-size:.86rem}}
 
-  /* nav */
-  nav{position:sticky;top:0;z-index:10;backdrop-filter:blur(14px);background:rgba(7,8,12,.6);border-bottom:1px solid rgba(255,255,255,.04)}
-  nav .wrap{display:flex;align-items:center;justify-content:space-between;height:64px}
-  .logo{font-weight:800;letter-spacing:-.02em}
-  .logo span{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
-  .links{display:flex;gap:28px;font-size:.92rem;color:var(--muted)}
-  .links a:hover{color:var(--text)}
-  @media(max-width:720px){.links{display:none}}
+  /* plum band */
+  .band{background:var(--plum);color:var(--on-plum)}
+  .band .muted{color:var(--on-plum-soft)}
 
-  /* hero */
-  .hero{padding:110px 0 80px}
-  .pill{display:inline-flex;align-items:center;gap:8px;font-size:.8rem;color:var(--muted);border:1px solid var(--line);background:rgba(17,20,29,.7);padding:6px 14px;border-radius:999px}
-  .dot{width:8px;height:8px;border-radius:50%;background:#22c55e;box-shadow:0 0 12px #22c55e}
-  h1{font-size:clamp(2.6rem,6.5vw,4.8rem);line-height:1.04;letter-spacing:-.045em;font-weight:800;margin:26px 0 22px;max-width:900px}
-  .g{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
-  .lead{font-size:clamp(1.05rem,2vw,1.25rem);color:var(--muted);max-width:640px}
-  .cta{display:flex;gap:14px;margin-top:38px;flex-wrap:wrap}
-  .btn{padding:13px 22px;border-radius:12px;font-weight:600;font-size:.95rem;transition:.2s}
-  .btn.p{background:var(--text);color:var(--bg)}
-  .btn.p:hover{transform:translateY(-2px);box-shadow:0 10px 30px rgba(139,92,246,.35)}
-  .btn.s{border:1px solid var(--line);color:var(--text)}
-  .btn.s:hover{border-color:var(--a1)}
+  /* carousel */
+  .carousel{max-width:880px;margin:0 auto;padding:40px 24px 0}
+  .frame{position:relative;aspect-ratio:16/9.2;border-radius:18px;overflow:hidden;background:#140a13;box-shadow:0 24px 60px rgba(30,6,26,.35)}
+  .slide{position:absolute;inset:0;margin:0;opacity:0;transition:opacity .9s ease}
+  .slide.on{opacity:1}
+  .slide img{width:100%;height:100%;object-fit:contain;display:block}
+  .slide figcaption{position:absolute;left:0;right:0;bottom:0;padding:40px 22px 16px;font-size:.9rem;font-weight:500;color:#fff;background:linear-gradient(transparent,rgba(20,6,18,.75))}
+  .arrow{position:absolute;top:50%;transform:translateY(-50%);width:42px;height:42px;border-radius:50%;border:0;cursor:pointer;background:rgba(255,255,255,.92);color:var(--plum);font-size:1.4rem;line-height:1;display:grid;place-items:center;transition:.2s;z-index:2}
+  .arrow:hover{background:#fff;transform:translateY(-50%) scale(1.06)}
+  .arrow.prev{left:14px}.arrow.next{right:14px}
+  .dots{display:flex;gap:8px;justify-content:center;margin-top:16px}
+  .dots button{width:8px;height:8px;border-radius:999px;border:0;padding:0;cursor:pointer;background:rgba(255,255,255,.35);transition:.3s}
+  .dots button.on{width:26px;background:var(--lilac)}
+  .frame.single .arrow,.frame.single ~ .dots{display:none}
+  @media(max-width:620px){.arrow{width:34px;height:34px;font-size:1.2rem}}
 
-  /* stats */
-  .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:var(--r);overflow:hidden;margin-top:80px}
-  .stat{background:var(--bg2);padding:26px 22px}
-  .stat b{display:block;font-size:2rem;letter-spacing:-.03em;font-weight:800}
-  .stat span{color:var(--muted);font-size:.88rem}
-  @media(max-width:720px){.stats{grid-template-columns:repeat(2,1fr)}}
+  /* intro */
+  .intro{padding:52px 24px 84px}
+  .kicker{display:inline-block;font-size:.76rem;letter-spacing:.16em;text-transform:uppercase;font-weight:600;color:var(--lilac-2);margin-bottom:14px}
+  .intro h1{font-family:Lora,Georgia,serif;font-weight:500;font-size:clamp(2.3rem,5.6vw,3.5rem);line-height:1.12;letter-spacing:-.015em}
+  .intro h1 em{font-style:italic;color:var(--lilac)}
+  .rule{width:64px;height:2px;background:var(--lilac-2);margin:28px 0 24px;border:0}
+  .intro p{font-size:1.08rem;max-width:680px}
+  .intro p + p{margin-top:14px}
+  .intro strong{color:#fff;font-weight:600}
 
-  section{padding:90px 0}
-  .eyebrow{font-size:.78rem;letter-spacing:.18em;text-transform:uppercase;color:var(--a2);margin-bottom:14px}
-  h2{font-size:clamp(1.8rem,4vw,2.6rem);letter-spacing:-.035em;line-height:1.15;margin-bottom:18px;max-width:720px}
-  .sub{color:var(--muted);max-width:640px;margin-bottom:44px}
+  section{padding:76px 0}
+  .alt{background:var(--paper-2)}
+  h2{font-family:Lora,Georgia,serif;font-weight:500;font-size:2.2rem;letter-spacing:-.01em;margin-bottom:8px;color:var(--plum)}
+  .band h2{color:#fff}
+  .lede{color:var(--ink-soft);margin-bottom:30px}
+  .band .lede{color:var(--on-plum-soft)}
 
-  /* cards */
-  .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px}
-  .card{position:relative;background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:28px;transition:.25s}
-  .card:hover{border-color:rgba(139,92,246,.5);transform:translateY(-4px)}
-  .card h3{font-size:1.25rem;letter-spacing:-.02em;margin-bottom:6px}
-  .card .tag{font-size:.75rem;color:var(--a2);margin-bottom:14px;display:block}
-  .card p{color:var(--muted);font-size:.95rem}
-  .chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
-  .chip{font-size:.74rem;padding:4px 10px;border-radius:999px;background:rgba(139,92,246,.1);border:1px solid rgba(139,92,246,.25);color:#c4b5fd}
-  .card .more{display:inline-flex;gap:16px;margin-top:20px;font-size:.88rem;font-weight:600}
-  .card .more a{color:var(--text);border-bottom:1px solid var(--a1)}
-  .card.feature{grid-column:1/-1;display:grid;grid-template-columns:1.2fr 1fr;gap:36px;padding:38px;background:linear-gradient(160deg,rgba(139,92,246,.12),rgba(34,211,238,.04) 60%),var(--card)}
-  @media(max-width:820px){.card.feature{grid-template-columns:1fr}}
-  .outcomes{display:grid;gap:14px;align-content:start}
-  .outcome{border:1px solid var(--line);border-radius:14px;padding:16px 18px;background:rgba(7,8,12,.5)}
-  .outcome b{font-size:1.5rem;letter-spacing:-.02em;display:block}
-  .outcome span{color:var(--muted);font-size:.86rem}
+  /* talks & community */
+  .item{display:grid;grid-template-columns:150px 1fr;gap:24px;padding:22px 0;border-top:1px solid var(--line)}
+  .item:last-child{border-bottom:1px solid var(--line)}
+  .badge{align-self:start;justify-self:start;font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;font-weight:600;color:var(--plum);background:var(--lilac);padding:4px 11px;border-radius:999px;margin-top:4px}
+  .item h3{font-family:Lora,Georgia,serif;font-size:1.25rem;font-weight:600;line-height:1.35}
+  .item p{color:var(--ink-soft);margin-top:4px}
+  @media(max-width:560px){.item{grid-template-columns:1fr;gap:6px}}
 
-  /* stack */
-  .stack{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:16px}
-  .sk{border:1px solid var(--line);border-radius:14px;padding:22px;background:var(--bg2)}
-  .sk h4{font-size:1rem;margin-bottom:8px}
-  .sk p{color:var(--muted);font-size:.88rem}
-
-  /* timeline */
-  .tl{display:grid;gap:16px}
-  .ti{display:grid;grid-template-columns:150px 1fr;gap:24px;padding:24px 0;border-top:1px solid var(--line)}
-  .ti .when{color:var(--dim);font-size:.85rem}
-  .ti h3{font-size:1.15rem;letter-spacing:-.01em}
-  .ti p{color:var(--muted);font-size:.95rem;margin-top:6px}
-  @media(max-width:620px){.ti{grid-template-columns:1fr;gap:6px}}
-
-  /* principles */
-  .pr{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px}
-  .pr div{padding:26px;border-left:2px solid var(--a1);background:linear-gradient(90deg,rgba(139,92,246,.08),transparent)}
-  .pr h4{font-size:1.1rem;margin-bottom:8px}
-  .pr p{color:var(--muted);font-size:.93rem}
+  /* projects */
+  .projects{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:18px}
+  .project{background:var(--plum-deep);border-radius:18px;padding:28px;display:flex;flex-direction:column}
+  .project h3{font-family:Lora,Georgia,serif;font-weight:600;font-size:1.45rem}
+  .project .role{font-size:.86rem;color:var(--lilac-2);font-weight:600;margin:2px 0 12px}
+  .project p{color:var(--on-plum-soft);font-size:.96rem}
+  .project .links{margin-top:auto;padding-top:16px;font-size:.92rem;font-weight:600}
+  .project .links a{text-underline-offset:4px;text-decoration-color:var(--lilac-2)}
 
   /* contact */
-  .contact{text-align:center;border:1px solid var(--line);border-radius:28px;padding:70px 24px;background:radial-gradient(500px 240px at 50% 0%,rgba(139,92,246,.2),transparent),var(--bg2)}
-  .contact h2{margin:0 auto 14px}
-  .contact .sub{margin:0 auto 34px}
-  .contact .cta{justify-content:center}
-
-  .todo{background:rgba(250,204,21,.12);border:1px dashed #facc15;color:#fde68a;border-radius:6px;padding:0 6px}
-
-  footer{padding:40px 0 60px;color:var(--dim);font-size:.85rem;text-align:center}
-
-  .reveal{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s ease}
-  .reveal.in{opacity:1;transform:none}
-  @media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}html{scroll-behavior:auto}}
+  footer{padding:76px 0 60px}
+  .contact-links{display:flex;flex-wrap:wrap;gap:12px;margin-top:6px}
+  .contact-links a{text-decoration:none;border-radius:999px;padding:11px 22px;font-size:.92rem;font-weight:600;transition:.2s;border:1.5px solid var(--plum);color:var(--plum)}
+  .contact-links a.primary{background:var(--plum);color:#fff}
+  .contact-links a:hover{background:var(--plum-deep);border-color:var(--plum-deep);color:#fff}
+  .copy{margin-top:56px;font-size:.82rem;color:var(--ink-soft)}
 </style>
 </head>
 <body>
-<div class="glow"></div><div class="grid-bg"></div>
 
-<nav>
+<header>
   <div class="wrap">
-    <a href="#" class="logo">divya<span>.ai</span></a>
-    <div class="links">
-      <a href="#work">Work</a>
-      <a href="#stack">Focus</a>
-      <a href="#speaking">Speaking</a>
-      <a href="#leadership">Leadership</a>
+    <a class="mark" href="#"><span class="mono">DM</span><span>Divya Mahajan</span></a>
+    <nav>
+      <a href="#talks">Talks</a>
+      <a href="#projects">Projects</a>
       <a href="#contact">Contact</a>
-    </div>
-  </div>
-</nav>
-
-<header class="hero wrap">
-  <span class="pill reveal"><span class="dot"></span> Building with agentic AI · Silicon Valley</span>
-  <h1 class="reveal">I turn frontier AI into <span class="g">products people pay for.</span></h1>
-  <p class="lead reveal">I'm Divya Mahajan, a founder-minded product leader. I take AI products from a blank page to first customers, and I stay hands-on with the latest models, agents and tooling so the strategy is grounded in what actually ships.</p>
-  <div class="cta reveal">
-    <a class="btn p" href="#work">See what I've built</a>
-    <a class="btn s" href="#contact">Let's talk</a>
-  </div>
-
-  <div class="stats reveal">
-    <div class="stat"><b class="g">0 → 1</b><span>AI product built and launched</span></div>
-    <div class="stat"><b>2</b><span>Pilot customers signed</span></div>
-    <div class="stat"><b>2</b><span>Talks in Silicon Valley</span></div>
-    <div class="stat"><b>Mentor</b><span>Startups at swissnex</span></div>
+    </nav>
   </div>
 </header>
 
-<section id="work">
+<div class="band">
+  <!-- Photo carousel. To change photos, edit the slides below (any number works). -->
+  <div class="carousel" aria-roledescription="carousel" aria-label="Photos of Divya">
+    <div class="frame">
+      <figure class="slide"><img src="https://divyamahajan.carrd.co/assets/images/gallery01/1da07b92.jpg" alt="Divya speaking on stage at Plug and Play"><figcaption>On stage at Plug and Play</figcaption></figure>
+      <figure class="slide"><img src="https://divyamahajan.carrd.co/assets/images/gallery02/6d3786b1.jpg" alt="AI in Enterprise panel poster"><figcaption>AI in Enterprise: Reinventing Non-Tech Giants</figcaption></figure>
+      <figure class="slide"><img src="https://divyamahajan.carrd.co/assets/images/gallery02/0afbfb34.jpg" alt="Divya with panelists and attendees"><figcaption>Speaking with the Silicon Valley startup community</figcaption></figure>
+      <figure class="slide"><img src="https://divyamahajan.carrd.co/assets/images/gallery01/9ea121c5.jpg" alt="Divya with a group at a tech event"><figcaption>Judging and mentoring at startup events</figcaption></figure>
+      <figure class="slide"><img src="https://divyamahajan.carrd.co/assets/images/gallery02/aa83efb3.jpg" alt="Divya with founders"><figcaption>With founders in San Francisco</figcaption></figure>
+      <figure class="slide"><img src="https://divyamahajan.carrd.co/assets/images/gallery01/0f7a9f37.jpg" alt="Divya at an event"><figcaption></figcaption></figure>
+      <button class="arrow prev" aria-label="Previous photo">‹</button>
+      <button class="arrow next" aria-label="Next photo">›</button>
+    </div>
+    <div class="dots"></div>
+  </div>
+
+  <main class="intro wrap">
+    <span class="kicker">AI · Product · Startups</span>
+    <h1>Hi, I'm Divya. I turn <em>frontier AI</em> into products that matter.</h1>
+    <hr class="rule">
+    <p>I'm an AI, product and technology leader, advisor and speaker in San Francisco. Over <strong>more than a decade</strong> I've built data and AI products from scratch and led AI and product initiatives at <strong>Peet's Coffee, Hexaware and British Telecom</strong>.</p>
+    <p>Most recently I built the first version of <strong>Corduroy AI</strong> and took it to <strong>two pilot customers</strong>. I mentor founders at <strong>swissnex</strong>, teach AI product at <strong>Product Gym</strong>, and speak on stages like <strong>Plug and Play</strong>.</p>
+    <p class="muted">Right now I'm deep in agentic AI, building with the newest models and agent frameworks to find out what's ready for real products and what's still hype.</p>
+  </main>
+</div>
+
+<section id="talks">
   <div class="wrap">
-    <p class="eyebrow mono reveal">Selected work</p>
-    <h2 class="reveal">From idea to paying pilots, at startup speed.</h2>
-    <p class="sub reveal">I lead the full arc: finding a painful problem, shaping the product, building the first version with modern AI, and getting it in front of customers.</p>
+    <h2>Talks & community</h2>
+    <p class="lede">Sharing what I learn with builders across the Bay Area.</p>
+    <div class="item">
+      <span class="badge">Speaker</span>
+      <div><h3>Plug and Play</h3><p>AI in Enterprise: reinventing non-tech giants with AI.</p></div>
+    </div>
+    <div class="item">
+      <span class="badge">Speaker</span>
+      <div><h3>Brazilian Chamber of Commerce</h3><p>AI, product and the future of technology-led business.</p></div>
+    </div>
+    <div class="item">
+      <span class="badge">Mentor</span>
+      <div><h3>swissnex</h3><p>Startup mentor, helping founders with AI product strategy and getting to first customers.</p></div>
+    </div>
+    <div class="item">
+      <span class="badge">Instructor</span>
+      <div><h3>Product Gym</h3><p>Teaching AI product management.</p></div>
+    </div>
+    <div class="item">
+      <span class="badge">Judge</span>
+      <div><h3>Hackathons</h3><p>Ventureminer, Coeus Collective, Flow, Brooklan, The Graph and 3% Club.</p></div>
+    </div>
+  </div>
+</section>
 
-    <div class="cards">
-      <article class="card feature reveal">
-        <div>
-          <span class="tag mono">Founding product · AI SaaS</span>
-          <h3>Corduroy AI</h3>
-          <p style="margin-top:10px">An AI copilot for global trade compliance. Teams describe a product in plain English and get the right tariff classification with a confidence score and duty rates. It also reads commercial invoices and packing lists to flag issues before they become costly.</p>
-          <p style="margin-top:12px">I built the first version end to end, from product definition and UX to the RAG pipeline and launch, and took it to two pilot customers.</p>
-          <div class="chips">
-            <span class="chip">LLMs</span><span class="chip">RAG · Pinecone</span><span class="chip">Document AI</span><span class="chip">React · TypeScript</span><span class="chip">Supabase</span>
-          </div>
-          <div class="more"><a href="https://corduroyai.vercel.app" target="_blank" rel="noopener">Live product ↗</a></div>
-        </div>
-        <div class="outcomes">
-          <div class="outcome"><b>v1 shipped</b><span>Built the first version of the product</span></div>
-          <div class="outcome"><b>2 pilots</b><span>Customers piloting it in real workflows</span></div>
-          <div class="outcome"><b>AI-native</b><span>Classification, document analysis and retrieval in one workflow</span></div>
-        </div>
-      </article>
-
-      <article class="card reveal">
-        <span class="tag mono">Consumer AI · Fintech</span>
+<section id="projects" class="band">
+  <div class="wrap">
+    <h2>Projects</h2>
+    <p class="lede">Things I've taken from idea to real users.</p>
+    <div class="projects">
+      <div class="project">
+        <h3>Corduroy AI</h3>
+        <div class="role">Built v1 · 2 pilot customers</div>
+        <p>An AI copilot for trade compliance. Describe a product in plain English and get its tariff classification with a confidence score, or upload invoices and packing lists to catch issues early.</p>
+        <div class="links"><a href="https://corduroyai.vercel.app" target="_blank" rel="noopener">See the product ↗</a></div>
+      </div>
+      <div class="project">
         <h3>DoughJo</h3>
-        <p>An AI money coach that turns financial literacy into a game. An AI "Sensei" gives personal guidance, generates lessons and quizzes, and users level up through XP and belt ranks.</p>
-        <div class="chips"><span class="chip">AI coach</span><span class="chip">Generative content</span><span class="chip">Gamification</span></div>
-        <div class="more"><a href="https://github.com/divu112311/Dojo" target="_blank" rel="noopener">Code ↗</a></div>
-      </article>
-
-      <article class="card reveal">
-        <span class="tag mono">Now building · Agentic AI</span>
-        <h3>Agent Lab</h3>
-        <p>Hands-on experiments with multi-step AI agents: stateful graphs that plan, call tools and analyze business data. This is where I test what the newest agent frameworks can really do before betting a product on them.</p>
-        <div class="chips"><span class="chip">LangGraph</span><span class="chip">Tool use</span><span class="chip">Multi-agent</span></div>
-      </article>
-    </div>
-  </div>
-</section>
-
-<section id="stack">
-  <div class="wrap">
-    <p class="eyebrow mono reveal">What I work on</p>
-    <h2 class="reveal">Fluent in the AI frontier, focused on outcomes.</h2>
-    <p class="sub reveal">I go deep on new AI capabilities so I can spot what's ready for real products and what's still hype.</p>
-    <div class="stack">
-      <div class="sk reveal"><h4>Agentic AI</h4><p>Autonomous agents, tool use, multi-agent orchestration and human-in-the-loop design.</p></div>
-      <div class="sk reveal"><h4>LLM products</h4><p>RAG, structured outputs, evals and guardrails that make AI reliable enough to sell.</p></div>
-      <div class="sk reveal"><h4>0 → 1 product</h4><p>Problem discovery, rapid prototyping, MVP scoping and getting to first customers.</p></div>
-      <div class="sk reveal"><h4>Startup execution</h4><p>Pilots, early go-to-market, customer feedback loops and moving fast with a small team.</p></div>
-    </div>
-  </div>
-</section>
-
-<section id="speaking">
-  <div class="wrap">
-    <p class="eyebrow mono reveal">Speaking & community</p>
-    <h2 class="reveal">Sharing what I learn with builders.</h2>
-    <div class="tl">
-      <div class="ti reveal">
-        <div class="when mono"><span class="todo">Month Year</span></div>
-        <div><h3>Talk · <span class="todo">Talk title</span></h3><p><span class="todo">Event / venue</span>, Silicon Valley. <span class="todo">One line on what you spoke about.</span></p></div>
+        <div class="role">Bolt Hackathon · Fintech</div>
+        <p>An AI money coach that makes managing finances a game, with an AI "Sensei", generated lessons and quizzes, and belt ranks to level up.</p>
+        <div class="links"><a href="https://github.com/divu112311/Dojo" target="_blank" rel="noopener">See the code ↗</a></div>
       </div>
-      <div class="ti reveal">
-        <div class="when mono"><span class="todo">Month Year</span></div>
-        <div><h3>Talk · <span class="todo">Talk title</span></h3><p><span class="todo">Event / venue</span>, Silicon Valley. <span class="todo">One line on what you spoke about.</span></p></div>
-      </div>
-      <div class="ti reveal">
-        <div class="when mono">Ongoing</div>
-        <div><h3>Mentor · swissnex</h3><p>Mentoring founders on AI product strategy, finding product-market fit and getting to first customers.</p></div>
+      <div class="project">
+        <h3>Midnight Mile</h3>
+        <div class="role">Recognized at Google Maps Hackathon</div>
+        <p>A women's safety app that helps people get home safely at night.</p>
       </div>
     </div>
   </div>
 </section>
 
-<section id="leadership">
+<footer id="contact">
   <div class="wrap">
-    <p class="eyebrow mono reveal">How I lead</p>
-    <h2 class="reveal">Principles I build by.</h2>
-    <div class="pr">
-      <div class="reveal"><h4>Ship to learn</h4><p>A working prototype in front of a customer beats a perfect roadmap. Speed of learning is the advantage.</p></div>
-      <div class="reveal"><h4>AI where it moves the metric</h4><p>Not AI for the demo. AI where it removes real work, real cost or real risk for the customer.</p></div>
-      <div class="reveal"><h4>Stay hands-on</h4><p>I build with the tools myself. Leaders who understand the tech make faster, better calls.</p></div>
+    <h2>Let's talk</h2>
+    <p class="lede">About AI products, startups, advising, mentoring or speaking.</p>
+    <div class="contact-links">
+      <a class="primary" href="https://www.linkedin.com/in/divyamahajan11" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://divyamahajan.substack.com/" target="_blank" rel="noopener">Substack</a>
+      <a href="https://x.com/divya_mahajan11" target="_blank" rel="noopener">X</a>
+      <a href="https://github.com/divu112311" target="_blank" rel="noopener">GitHub</a>
     </div>
+    <p class="copy">© <span id="y"></span> Divya Mahajan</p>
   </div>
-</section>
-
-<section id="contact">
-  <div class="wrap">
-    <div class="contact reveal">
-      <p class="eyebrow mono">Contact</p>
-      <h2>Building something with AI? Let's talk.</h2>
-      <p class="sub">Open to conversations about AI products, startups, advising and speaking.</p>
-      <div class="cta">
-        <a class="btn p" href="#"><span class="todo">Email</span></a>
-        <a class="btn s" href="#"><span class="todo">LinkedIn</span></a>
-        <a class="btn s" href="https://github.com/divu112311" target="_blank" rel="noopener">GitHub</a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<footer>© <span id="y"></span> Divya Mahajan</footer>
+</footer>
 
 <script>
   document.getElementById('y').textContent = new Date().getFullYear();
-  const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }), { threshold: .12 });
-  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+  // Photo carousel: auto-advances, arrows + dots, pauses on hover, skips photos that fail to load.
+  (function () {
+    const frame = document.querySelector('.frame');
+    const dotsEl = document.querySelector('.dots');
+    let slides = [], i = 0, timer;
+    const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    function show(n) {
+      if (!slides.length) return;
+      i = (n + slides.length) % slides.length;
+      slides.forEach((s, k) => s.classList.toggle('on', k === i));
+      [...dotsEl.children].forEach((d, k) => d.classList.toggle('on', k === i));
+    }
+    function restart() { clearInterval(timer); if (!reduce && slides.length > 1) timer = setInterval(() => show(i + 1), 4500); }
+    function build() {
+      slides = [...frame.querySelectorAll('.slide')];
+      dotsEl.innerHTML = '';
+      frame.classList.toggle('single', slides.length <= 1);
+      slides.forEach((_, k) => {
+        const b = document.createElement('button');
+        b.setAttribute('aria-label', 'Show photo ' + (k + 1));
+        b.onclick = () => { show(k); restart(); };
+        dotsEl.appendChild(b);
+      });
+      show(0); restart();
+    }
+
+    frame.querySelectorAll('.slide img').forEach(img => img.addEventListener('error', () => { img.closest('.slide').remove(); build(); }));
+    build();
+
+    frame.querySelector('.prev').onclick = () => { show(i - 1); restart(); };
+    frame.querySelector('.next').onclick = () => { show(i + 1); restart(); };
+    frame.addEventListener('mouseenter', () => clearInterval(timer));
+    frame.addEventListener('mouseleave', restart);
+  })();
 </script>
 </body>
 </html>
