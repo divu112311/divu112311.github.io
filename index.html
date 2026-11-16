@@ -4,6 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Divya Mahajan</title>
+<link rel="icon" type="image/png" href="favicon.png">
 <meta name="description" content="Divya Mahajan: AI, product and technology leader, advisor and speaker in San Francisco.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -29,6 +30,8 @@
   .mark{display:flex;align-items:center;gap:10px;text-decoration:none}
   .mono{font-family:Lora,Georgia,serif;font-weight:600;font-size:1.25rem;letter-spacing:-.02em;color:var(--plum);border:1.5px solid var(--plum);border-radius:8px;width:44px;height:40px;display:flex;align-items:center;justify-content:center;white-space:nowrap}
   .mono b{color:var(--ink);font-weight:600}
+  .logo{height:72px;width:auto;display:block;margin:-8px 0}
+  @media(max-width:640px){.logo{height:60px}}
   .mark span{font-size:.78rem;letter-spacing:.2em;text-transform:uppercase;font-weight:600;color:var(--ink)}
   header nav{display:flex;gap:26px;font-size:.92rem;font-weight:500}
   header nav a{text-decoration:none;color:var(--ink-soft)}
@@ -111,7 +114,7 @@
 
 <header>
   <div class="wrap">
-    <a class="mark" href="#"><span class="mono">DM</span><span>Divya Mahajan</span></a>
+    <a class="mark" href="#" aria-label="Divya Mahajan, home"><img class="logo" src="logo.png" alt="Divya Mahajan"></a>
     <nav>
       <a href="#talks">Talks</a>
       <a href="#projects">Projects</a>
