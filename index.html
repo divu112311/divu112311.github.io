@@ -41,14 +41,19 @@
 
   /* carousel */
   /* hero: carousel on one side, intro on the other (stacks on small screens) */
-  .hero{max-width:1180px;margin:0 auto;padding:56px 24px 84px;display:grid;grid-template-columns:1.05fr 1fr;gap:56px;align-items:start}
-  .carousel{position:sticky;top:96px}
+  .hero{max-width:1180px;margin:0 auto;padding:56px 24px 84px;display:grid;grid-template-columns:1.05fr 1fr;gap:56px;align-items:stretch}
+  /* photo column stretches to the same height as the intro */
+  .carousel{display:flex;flex-direction:column}
+  .carousel .frame{flex:1;aspect-ratio:auto;min-height:420px}
   @media(max-width:1000px){.hero{gap:32px;padding-top:40px}}
-  @media(max-width:640px){.hero{grid-template-columns:1fr;gap:36px;padding-top:32px}.carousel{position:static}}
+  @media(max-width:640px){.hero{grid-template-columns:1fr;gap:36px;padding-top:32px}.carousel .frame{flex:none;aspect-ratio:4/3;min-height:0}}
   .frame{position:relative;aspect-ratio:4/3;border-radius:18px;overflow:hidden;background:#140a13;box-shadow:0 24px 60px rgba(30,6,26,.35)}
   .slide{position:absolute;inset:0;margin:0;opacity:0;transition:opacity .9s ease}
   .slide.on{opacity:1}
-  .slide img{width:100%;height:100%;object-fit:contain;display:block}
+  /* the photo sits whole in the middle; a blurred copy of it fills the rest of the frame */
+  .slide{overflow:hidden}
+  .slide::before{content:"";position:absolute;inset:-40px;background:var(--bg) center/cover no-repeat;filter:blur(28px) brightness(.55) saturate(1.2)}
+  .slide img{position:relative;width:100%;height:100%;object-fit:contain;object-position:center;display:block}
   .slide figcaption{position:absolute;left:0;right:0;bottom:0;padding:40px 22px 16px;font-size:.9rem;font-weight:500;color:#fff;background:linear-gradient(transparent,rgba(20,6,18,.75))}
   .arrow{position:absolute;top:50%;transform:translateY(-50%);width:42px;height:42px;border-radius:50%;border:0;cursor:pointer;background:rgba(255,255,255,.92);color:var(--plum);font-size:1.4rem;line-height:1;display:grid;place-items:center;transition:.2s;z-index:2}
   .arrow:hover{background:#fff;transform:translateY(-50%) scale(1.06)}
@@ -242,7 +247,39 @@
       show(0); restart();
     }
 
-    frame.querySelectorAll('.slide img').forEach(img => img.addEventListener('error', () => { img.closest('.slide').remove(); build(); }));
+    // Trim the black padding baked into some photos, then use the trimmed photo
+    // both as the slide image and as its blurred background fill.
+    function trimAndFill(img) {
+      const slide = img.closest('.slide');
+      try {
+        const w = img.naturalWidth, h = img.naturalHeight;
+        const c = document.createElement('canvas'); c.width = w; c.height = h;
+        const ctx = c.getContext('2d'); ctx.drawImage(img, 0, 0);
+        const px = ctx.getImageData(0, 0, w, h).data;
+        const dark = (x, y) => { const p = (y * w + x) * 4; return px[p] + px[p + 1] + px[p + 2] < 60; };
+        const rowDark = y => { let n = 0; for (let x = 0; x < w; x += 4) if (!dark(x, y)) n++; return n < w / 4 * 0.02; };
+        const colDark = x => { let n = 0; for (let y = 0; y < h; y += 4) if (!dark(x, y)) n++; return n < h / 4 * 0.02; };
+        let t = 0, b = h - 1, l = 0, r = w - 1;
+        while (t < b && rowDark(t)) t++;
+        while (b > t && rowDark(b)) b--;
+        while (l < r && colDark(l)) l++;
+        while (r > l && colDark(r)) r--;
+        const cw = r - l + 1, ch = b - t + 1;
+        if (cw > 50 && ch > 50 && (cw < w - 6 || ch < h - 6)) {
+          const o = document.createElement('canvas'); o.width = cw; o.height = ch;
+          o.getContext('2d').drawImage(c, l, t, cw, ch, 0, 0, cw, ch);
+          img.dataset.trimmed = '1';
+          img.src = o.toDataURL('image/jpeg', 0.92);
+        }
+      } catch (e) { /* canvas blocked (e.g. opened as a local file): keep the original photo */ }
+      slide.style.setProperty('--bg', 'url("' + img.src + '")');
+    }
+
+    frame.querySelectorAll('.slide img').forEach(img => {
+      img.addEventListener('error', () => { img.closest('.slide').remove(); build(); });
+      const go = () => { if (!img.dataset.trimmed) trimAndFill(img); };
+      if (img.complete && img.naturalWidth) go(); else img.addEventListener('load', go);
+    });
     build();
 
     frame.querySelector('.prev').onclick = () => { show(i - 1); restart(); };
