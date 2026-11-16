@@ -26,12 +26,12 @@
 
   /* header */
   header{background:var(--paper);position:sticky;top:0;z-index:5;border-bottom:1px solid var(--line)}
-  header .wrap{display:flex;justify-content:space-between;align-items:center;height:68px}
+  header .wrap{display:flex;justify-content:space-between;align-items:center;height:84px}
   .mark{display:flex;align-items:center;gap:10px;text-decoration:none}
   .mono{font-family:Lora,Georgia,serif;font-weight:600;font-size:1.25rem;letter-spacing:-.02em;color:var(--plum);border:1.5px solid var(--plum);border-radius:8px;width:44px;height:40px;display:flex;align-items:center;justify-content:center;white-space:nowrap}
   .mono b{color:var(--ink);font-weight:600}
-  .logo{height:72px;width:auto;display:block;margin:-8px 0}
-  @media(max-width:640px){.logo{height:60px}}
+  .logo{height:62px;width:auto;display:block}
+  @media(max-width:640px){header .wrap{height:72px}.logo{height:54px}}
   .mark span{font-size:.78rem;letter-spacing:.2em;text-transform:uppercase;font-weight:600;color:var(--ink)}
   header nav{display:flex;gap:26px;font-size:.92rem;font-weight:500}
   header nav a{text-decoration:none;color:var(--ink-soft)}
