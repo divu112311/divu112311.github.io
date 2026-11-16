@@ -94,8 +94,22 @@
   #work .lede{max-width:760px}
   @media(max-width:560px){.item{grid-template-columns:1fr;gap:6px}}
 
-  /* projects */
-  .projects{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:18px}
+  /* selected projects */
+  .case{background:var(--plum-deep);border-radius:18px;padding:40px 44px;max-width:860px}
+  .case .num{font-family:Lora,Georgia,serif;font-size:1rem;color:var(--lilac-2);letter-spacing:.08em}
+  .case h3{font-family:Lora,Georgia,serif;font-weight:600;font-size:1.9rem;margin-top:4px}
+  .case .sub{color:var(--lilac);font-weight:600;margin:4px 0 18px}
+  .case h4{font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;font-weight:600;color:var(--lilac-2);margin:30px 0 10px}
+  .case p{color:var(--on-plum-soft)}
+  .case p + p{margin-top:12px}
+  .case ul{margin:12px 0 0 20px;color:var(--on-plum-soft)}
+  .case li{margin-top:8px}
+  .case strong{color:#fff;font-weight:600}
+  .case .links{margin-top:30px;font-weight:600}
+  .case .links a{text-underline-offset:4px;text-decoration-color:var(--lilac-2)}
+  @media(max-width:640px){.case{padding:28px 22px}.case h3{font-size:1.6rem}}
+
+  /* projects */  .projects{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:18px}
   .project{background:var(--plum-deep);border-radius:18px;padding:28px;display:flex;flex-direction:column}
   .project h3{font-family:Lora,Georgia,serif;font-weight:600;font-size:1.45rem}
   .project .role{font-size:.86rem;color:var(--lilac-2);font-weight:600;margin:2px 0 12px}
@@ -178,30 +192,35 @@
 <section id="projects" class="band">
   <div class="wrap">
     <h2>Selected projects</h2>
-    <p class="lede">Things I've taken from idea to real users.</p>
-    <div class="projects">
-      <div class="project">
-        <h3>Corduroy AI</h3>
-        <div class="role">Built v1 · 2 pilot customers</div>
-        <p>An AI copilot for trade compliance. Describe a product in plain English and get its tariff classification with a confidence score, or upload invoices and packing lists to catch issues early.</p>
-        <div class="links"><a href="https://corduroyai.vercel.app" target="_blank" rel="noopener">See the product ↗</a></div>
-      </div>
-      <div class="project">
-        <h3>DoughJo</h3>
-        <div class="role">Bolt Hackathon · Fintech</div>
-        <p>An AI money coach that makes managing finances a game, with an AI "Sensei", generated lessons and quizzes, and belt ranks to level up.</p>
-        <div class="links"><a href="https://github.com/divu112311/DoughJo11" target="_blank" rel="noopener">See the code ↗</a></div>
-      </div>
-      <div class="project">
-        <h3>Midnight Mile</h3>
-        <div class="role">Recognized at Google Maps Hackathon</div>
-        <p>A women's safety app that helps people get home safely at night.</p>
-        <div class="links"><a href="https://github.com/divu112311/midnight-stride-safe" target="_blank" rel="noopener">See the code ↗</a></div>
-      </div>
-    </div>
+    <article class="case">
+      <span class="num">01</span>
+      <h3>Corduroy AI</h3>
+      <p class="sub">Building an AI-native trade compliance platform</p>
+      <p>Trade compliance is a domain where a seemingly simple product classification decision can require interpreting complex product attributes, regulatory rules and authoritative reference data.</p>
+      <p>Corduroy AI was built around this challenge.</p>
+
+      <h4>Product approach</h4>
+      <p>Rather than relying on an LLM to generate classification codes, we designed a system that grounded decisions in retrieved classification and regulatory data.</p>
+      <p>The product brought together:</p>
+      <ul>
+        <li><strong>RAG:</strong> Retrieved relevant classification references to ground model outputs.</li>
+        <li><strong>Attribute extraction:</strong> Identified product characteristics needed to make classification decisions.</li>
+        <li><strong>Agent workflows:</strong> Coordinated specialised tasks across the classification process.</li>
+        <li><strong>Tools:</strong> Enabled retrieval, structured data processing and validation.</li>
+        <li><strong>Grounded responses:</strong> Connected classification outputs to supporting references.</li>
+      </ul>
+
+      <h4>Technical architecture</h4>
+      <p>Python, OpenAI APIs, Pinecone, Supabase, React/Next.js and GCP.</p>
+
+      <h4>Evaluation</h4>
+      <p>We evaluated the system against verified reference classifications, achieving over 90% accuracy in testing. We also assessed attribute extraction quality, tool selection, execution success, workflow completion and the grounding of supporting references.</p>
+      <p>The product progressed from customer discovery to MVP development and two pilot customers.</p>
+
+      <div class="links"><a href="https://corduroyai.vercel.app" target="_blank" rel="noopener">See the product ↗</a></div>
+    </article>
   </div>
 </section>
-
 <section id="talks">
   <div class="wrap">
     <h2>Talks & community</h2>
