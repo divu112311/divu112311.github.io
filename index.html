@@ -147,7 +147,6 @@
   @media(max-width:760px){.events{grid-template-columns:1fr}}
 
   /* talks & community: photo collage + engagement list */
-  #talks .wrap{max-width:1180px}
   .engage{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:48px;align-items:stretch;margin-top:8px}
   .mosaic{display:grid;grid-template-columns:repeat(4,1fr);grid-template-rows:repeat(4,minmax(140px,1fr));gap:8px}
   .tile{position:relative;aspect-ratio:auto;border-radius:12px;transition:opacity .3s ease}
@@ -180,6 +179,28 @@
     .mosaic{grid-template-columns:1fr 1fr;grid-template-rows:none;grid-auto-rows:150px}
     .tile.t1,.tile.t4,.tile.t7{grid-column:1/3;grid-row:auto}
     .tile.t2,.tile.t3,.tile.t5,.tile.t6,.tile.t8,.tile.t9{grid-column:auto;grid-row:auto}
+  }
+
+  /* full-photo galleries: each row's photos share one height and keep their own shape (no cropping) */
+  .gallery{display:flex;flex-direction:column;gap:8px}
+  .jrow{display:flex;gap:8px;align-items:flex-start}
+  .ph{flex:var(--ar) 1 0;min-width:0;aspect-ratio:var(--ar);border-radius:10px}
+  .ph img{object-fit:cover}
+  .feature{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,1fr);gap:36px;align-items:center;margin-bottom:48px}
+  .ftext{display:flex;flex-direction:column;gap:26px}
+  .fitem + .fitem{border-top:1px solid var(--line);padding-top:24px}
+  .fitem .where{font-size:.76rem;letter-spacing:.12em;text-transform:uppercase;font-weight:600;color:var(--plum)}
+  .fitem h4{font-family:Lora,Georgia,serif;font-weight:600;font-size:1.35rem;line-height:1.3;margin-top:4px;color:var(--ink)}
+  .fitem .post{display:inline-block;margin-top:8px;font-size:.92rem;font-weight:600;color:var(--plum);text-underline-offset:4px;text-decoration-color:var(--lilac-2)}
+  .elist3{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:18px}
+  .elist3 h4{font-family:Lora,Georgia,serif;font-weight:600;font-size:1.15rem}
+  .elist3 h4 a{color:var(--ink);text-decoration:none}
+  .elist3 h4 a:hover{color:var(--plum)}
+  .elist3 p{font-size:.94rem;color:var(--ink-soft);margin-top:2px}
+  @media(max-width:760px){
+    .feature{grid-template-columns:1fr;gap:24px}
+    .elist3{grid-template-columns:1fr;gap:12px}
+    .gallery,.jrow{gap:5px}
   }
 
   /* photo viewer */
@@ -315,42 +336,75 @@
 <section id="talks">
   <div class="wrap">
     <h2>Talks & community</h2>
-    <p class="lede">Contributing to the technology ecosystem through speaking, mentoring, teaching and engaging with emerging builders.</p>
+    <p class="lede">Speaking, mentoring founders, teaching product management and helping build the technology community.</p>
 
-    <div class="engage">
-      <div class="mosaic">
-        <a class="shot tile t1" data-key="pnp" href="photos/speaking/pnp-stage.jpg"><img src="photos/speaking/pnp-stage.jpg" alt="Divya speaking on stage at Plug and Play" style="object-position:62% 40%" loading="lazy"><span class="cap">Plug and Play</span></a>
-        <a class="shot tile t2" data-key="lovable" href="photos/events/lovable-fireside.jpg"><img src="photos/events/lovable-fireside.jpg" alt="Fireside chat at the Lovable meetup" loading="lazy"><span class="cap">Lovable</span></a>
-        <a class="shot tile t3" data-key="yc" href="photos/events/get-yc-ready.jpg"><img src="photos/events/get-yc-ready.jpg" alt="Group photo at Get YC Ready" loading="lazy"><span class="cap">Get YC Ready</span></a>
-        <a class="shot tile t4" data-key="judging" href="photos/judging/brooklan.jpg"><img src="photos/judging/brooklan.jpg" alt="Judges and builders at the Brooklan hackathon" loading="lazy"><span class="cap">Judging · Brooklan</span></a>
-        <a class="shot tile t5" data-key="brazil" href="photos/speaking/brazil-speaking.jpg"><img src="photos/speaking/brazil-speaking.jpg" alt="Divya speaking at the Brazilian Chamber of Commerce panel" style="object-position:50% 35%" loading="lazy"><span class="cap">Brazilian Chamber</span></a>
-        <a class="shot tile t6" data-key="allcode" href="photos/events/all-code-ballpark.jpg"><img src="photos/events/all-code-ballpark.jpg" alt="All Code community social at the ballpark" loading="lazy"><span class="cap">All Code</span></a>
-        <a class="shot tile t7" data-key="judging" href="photos/judging/nyc-judges.jpg"><img src="photos/judging/nyc-judges.jpg" alt="Divya with fellow judges at a New York hackathon" style="object-position:40% 45%" loading="lazy"><span class="cap">Judging · New York</span></a>
-        <a class="shot tile t8" data-key="lovable" href="photos/events/lovable-community.jpg"><img src="photos/events/lovable-community.jpg" alt="Builders at the Lovable meetup" style="object-position:50% 45%" loading="lazy"><span class="cap">Lovable</span></a>
-        <a class="shot tile t9" data-key="brazil" href="photos/speaking/brazil-panel.jpg"><img src="photos/speaking/brazil-panel.jpg" alt="Panelists at the Brazilian Chamber of Commerce" loading="lazy"><span class="cap">Brazilian Chamber</span></a>
+    <div class="block">
+      <div class="block-head"><span class="num">01</span><h3>Speaking</h3></div>
+      <div class="feature">
+        <div class="gallery">
+          <div class="jrow"><a class="shot ph" style="--ar:1.332" href="photos/speaking/pnp-stage.jpg"><img src="photos/speaking/pnp-stage.jpg" alt="Divya speaking on stage at Plug and Play" loading="lazy"></a></div>
+          <div class="jrow"><a class="shot ph" style="--ar:1.778" href="photos/speaking/brazil-speaking.jpg"><img src="photos/speaking/brazil-speaking.jpg" alt="Divya speaking at the Brazilian Chamber of Commerce panel" loading="lazy"></a><a class="shot ph" style="--ar:1.778" href="photos/speaking/brazil-panel.jpg"><img src="photos/speaking/brazil-panel.jpg" alt="Panelists at the Brazilian Chamber of Commerce" loading="lazy"></a></div>
+        </div>
+        <div class="ftext">
+          <div class="fitem">
+            <p class="where">Plug and Play · Bay Area</p>
+            <h4>AI in Enterprise</h4>
+            <a class="post" href="https://lnkd.in/p/gXWdmFhP" target="_blank" rel="noopener">Panel highlights ↗</a>
+          </div>
+          <div class="fitem">
+            <p class="where">Brazilian Chamber of Commerce · New York</p>
+            <h4>Accelerating Innovation with AI</h4>
+            <a class="post" href="https://lnkd.in/p/grdf9Br4" target="_blank" rel="noopener">Panel highlights ↗</a>
+          </div>
+        </div>
       </div>
+    </div>
 
-      <div class="elist">
-        <div class="egroup">
-          <p class="elabel">Speaking</p>
-          <p class="eitem" data-key="pnp"><span class="ename">Plug and Play</span><a href="https://lnkd.in/p/gXWdmFhP" target="_blank" rel="noopener">AI in Enterprise ↗</a></p>
-          <p class="eitem" data-key="brazil"><span class="ename">Brazilian Chamber of Commerce</span><a href="https://lnkd.in/p/grdf9Br4" target="_blank" rel="noopener">Accelerating Innovation with AI ↗</a></p>
+    <div class="pair">
+      <div class="card">
+        <div class="block-head"><span class="num">02</span><h3>Startup Mentorship</h3></div>
+        <p class="where">swissnex · Startup Mentor</p>
+        <p>Guiding early-stage founders on product strategy and customer discovery.</p>
+        <a class="mention" href="https://www.linkedin.com/pulse/experience-report-outpost-silicon-valley-manuel-meinen-3auee/" target="_blank" rel="noopener">
+          <span class="tag">Mention</span>
+          <span class="t">Outpost Silicon Valley report</span>
+          <span class="by">Manuel Meinen ↗</span>
+        </a>
+      </div>
+      <div class="card">
+        <div class="block-head"><span class="num">03</span><h3>Teaching</h3></div>
+        <p class="where">Product Gym · Product Management</p>
+        <p>Teaching product managers how to build with AI, from idea to launch.</p>
+        <div class="mention">
+          <span class="tag">Topics</span>
+          <span class="t">Agents, MCP and RAG</span>
+          <span class="by">AI product management</span>
         </div>
-        <div class="egroup">
-          <p class="elabel">Mentorship &amp; Teaching</p>
-          <p class="eitem"><span class="ename">swissnex · Startup Mentor</span><a href="https://www.linkedin.com/pulse/experience-report-outpost-silicon-valley-manuel-meinen-3auee/" target="_blank" rel="noopener">Mentioned in the Outpost Silicon Valley report ↗</a></p>
-          <p class="eitem"><span class="ename">Product Gym · Product Management</span><span class="edesc">Teaching agents, MCP and RAG</span></p>
-        </div>
-        <div class="egroup">
-          <p class="elabel">Hackathons &amp; Judging</p>
-          <p class="eitem" data-key="judging"><span class="ename">Venture Miner · Coeus Collective · Flow · Brooklan · The Graph · 3% Club · MLH</span><span class="elinks"><a href="https://lnkd.in/p/gSgAHE98" target="_blank" rel="noopener">Judging highlights ↗</a><a href="https://lnkd.in/p/gB8FAv23" target="_blank" rel="noopener">More highlights ↗</a></span></p>
-        </div>
-        <div class="egroup">
-          <p class="elabel">Events &amp; Community</p>
-          <p class="eitem" data-key="yc"><a class="ename" href="https://lnkd.in/p/gJqB8W_R" target="_blank" rel="noopener">Get YC Ready ↗</a><span class="edesc">With YC founders on application guidance</span></p>
-          <p class="eitem" data-key="lovable"><a class="ename" href="https://lnkd.in/p/gSxah5Yx" target="_blank" rel="noopener">Lovable ↗</a><span class="edesc">Fireside with Lovable's founder</span></p>
-          <p class="eitem" data-key="allcode"><a class="ename" href="https://lnkd.in/p/gxvv439i" target="_blank" rel="noopener">All Code ↗</a><span class="edesc">Community social at the ballpark</span></p>
-        </div>
+      </div>
+    </div>
+
+    <div class="block">
+      <div class="block-head"><span class="num">04</span><h3>Hackathons &amp; Judging</h3></div>
+      <div class="gallery">
+        <div class="jrow"><a class="shot ph" style="--ar:1.328" href="photos/judging/brooklan.jpg"><img src="photos/judging/brooklan.jpg" alt="Judges and builders at the Brooklan hackathon" loading="lazy"></a><a class="shot ph" style="--ar:1.333" href="photos/judging/nyc-judges.jpg"><img src="photos/judging/nyc-judges.jpg" alt="Divya with fellow judges at a New York hackathon" loading="lazy"></a></div>
+        <div class="jrow"><a class="shot ph" style="--ar:0.8" href="photos/judging/vibe-pitch-day-judges.jpg"><img src="photos/judging/vibe-pitch-day-judges.jpg" alt="Vibe Pitch Day judges, including Divya" loading="lazy"></a><a class="shot ph" style="--ar:1.330" href="photos/judging/nyc-hackathon.jpg"><img src="photos/judging/nyc-hackathon.jpg" alt="Teams building during a New York hackathon" loading="lazy"></a><a class="shot ph" style="--ar:0.75" href="photos/judging/nyc-teams.jpg"><img src="photos/judging/nyc-teams.jpg" alt="Hackathon teams at work" loading="lazy"></a></div>
+      </div>
+      <p class="where judged">Judging and evaluating emerging ideas</p>
+      <h4 class="judged-list">Venture Miner · Coeus Collective · Flow · Brooklan · The Graph · 3% Club · MLH</h4>
+      <p class="posts"><a href="https://lnkd.in/p/gSgAHE98" target="_blank" rel="noopener">Judging highlights ↗</a> <a href="https://lnkd.in/p/gB8FAv23" target="_blank" rel="noopener">More highlights ↗</a></p>
+    </div>
+
+    <div class="block">
+      <div class="block-head"><span class="num">05</span><h3>Events &amp; Community</h3></div>
+      <p class="block-lede">In the rooms where Silicon Valley's AI builders and founders meet.</p>
+      <div class="gallery">
+        <div class="jrow"><a class="shot ph" style="--ar:1.333" href="photos/events/get-yc-ready.jpg"><img src="photos/events/get-yc-ready.jpg" alt="Group photo at Get YC Ready" loading="lazy"></a><a class="shot ph" style="--ar:1.333" href="photos/events/lovable-fireside.jpg"><img src="photos/events/lovable-fireside.jpg" alt="Fireside chat at the Lovable meetup" loading="lazy"></a><a class="shot ph" style="--ar:1.333" href="photos/events/all-code-ballpark.jpg"><img src="photos/events/all-code-ballpark.jpg" alt="All Code community social at the ballpark" loading="lazy"></a></div>
+        <div class="jrow"><a class="shot ph" style="--ar:1.333" href="photos/events/get-yc-ready-2.jpg"><img src="photos/events/get-yc-ready-2.jpg" alt="Divya at Get YC Ready" loading="lazy"></a><a class="shot ph" style="--ar:0.75" href="photos/events/lovable-community.jpg"><img src="photos/events/lovable-community.jpg" alt="Builders at the Lovable meetup" loading="lazy"></a><a class="shot ph" style="--ar:0.75" href="photos/events/lovable-divya.jpg"><img src="photos/events/lovable-divya.jpg" alt="Divya at the Lovable meetup" loading="lazy"></a><a class="shot ph" style="--ar:1.333" href="photos/events/all-code-social.jpg"><img src="photos/events/all-code-social.jpg" alt="All Code community social" loading="lazy"></a></div>
+      </div>
+      <div class="elist3">
+        <div><h4><a href="https://lnkd.in/p/gJqB8W_R" target="_blank" rel="noopener">Get YC Ready ↗</a></h4><p>With YC founders on application guidance</p></div>
+        <div><h4><a href="https://lnkd.in/p/gSxah5Yx" target="_blank" rel="noopener">Lovable ↗</a></h4><p>Fireside with Lovable's founder</p></div>
+        <div><h4><a href="https://lnkd.in/p/gxvv439i" target="_blank" rel="noopener">All Code ↗</a></h4><p>Community social at the ballpark</p></div>
       </div>
     </div>
   </div>
