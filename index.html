@@ -114,17 +114,18 @@ nav a:hover{color:var(--plum)}
 .bullets li::before{content:"";position:absolute;left:0;top:.72em;width:6px;height:6px;border-radius:50%;background:var(--plum)}
 .bullets strong{font-weight:600}
 .case-link{margin-top:48px}
-.more{display:grid;grid-template-columns:repeat(6,1fr);grid-auto-rows:1fr;gap:32px}
-.more article{grid-column:span 2;display:flex;flex-direction:column;background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);padding:32px}
+.more{display:grid;grid-template-columns:repeat(6,1fr);column-gap:32px;row-gap:0}
+.more article{grid-column:span 2;grid-row:span 5;display:grid;grid-template-rows:subgrid;row-gap:0;margin-bottom:32px;background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);padding:32px}
 .more article:nth-child(4){grid-column:2 / span 2}
-.more .case-link{margin-top:auto;padding-top:24px}
-.case-link a + a{margin-left:24px}
-.more h3{min-height:2.6em}
-@media (max-width:1000px){.more{grid-template-columns:repeat(4,1fr)}.more article:nth-child(4){grid-column:span 2}.more article:nth-child(5){grid-column:2 / span 2}}
+.more h3{grid-row:1}
+.more .prose{grid-row:2;margin-top:16px}
+.more .grp{margin-top:24px}
+.more div.grp:nth-of-type(2){grid-row:3}
+.more div.grp:nth-of-type(3){grid-row:4}
 .more .label{margin-bottom:8px}
-.more .lead{margin-top:8px}
-.more .prose{margin-top:16px}
-.more .stack{margin-top:24px}
+.more .case-link{grid-row:5;margin-top:0;padding-top:24px;align-self:end}
+.case-link a + a{margin-left:24px}
+@media (max-width:1000px){.more{grid-template-columns:repeat(4,1fr)}.more article:nth-child(4){grid-column:span 2}.more article:nth-child(5){grid-column:2 / span 2}}
 
 /* ---- talks & community ---- */
 .block + .block{margin-top:var(--block)}
@@ -189,9 +190,7 @@ nav a:hover{color:var(--plum)}
   header .container{height:68px}
   .intro,.row,.case-grid,.case-grid.three,.more,.two,.split,.split.hack,.split.mentor,.duo{grid-template-columns:1fr}
   .case-grid.three{gap:32px}
-  .more{gap:24px;grid-auto-rows:auto}
-  .more article,.more article:nth-child(4),.more article:nth-child(5){grid-column:auto;padding:24px}
-  .more h3{min-height:0}
+  .more article,.more article:nth-child(4),.more article:nth-child(5){grid-column:auto;grid-row:auto;display:flex;flex-direction:column;padding:24px;margin-bottom:24px}
   .intro{gap:40px}
   .portrait{max-width:360px}
   .row{gap:12px;padding:32px 0}
@@ -299,10 +298,10 @@ nav a:hover{color:var(--plum)}
         <div class="prose">
           <p>Built an AI-powered trade compliance platform for HS/HTS classification and regulatory research. Designed workflows combining LLM-powered reasoning, product attribute extraction, document retrieval and regulatory knowledge to generate grounded classification recommendations.</p>
         </div>
-        <p class="label muted stack">Architecture</p>
-        <p>Agentic workflows · Retrieval-Augmented Generation (RAG) · Vector Search · Document Intelligence · Classification Evaluation</p>
-        <p class="label muted stack">Technology</p>
-        <p>Python · OpenAI APIs · Pinecone · Supabase · React · Next.js · Google Cloud</p>
+        <div class="grp"><p class="label muted">Architecture</p>
+          <p>Agentic workflows · Retrieval-Augmented Generation (RAG) · Vector Search · Document Intelligence · Classification Evaluation</p></div>
+        <div class="grp"><p class="label muted">Technology</p>
+          <p>Python · OpenAI APIs · Pinecone · Supabase · React · Next.js · Google Cloud</p></div>
         <p class="case-link"><a class="ln" href="https://corduroyai.vercel.app" target="_blank" rel="noopener">See the product</a></p>
       </article>
       <article>
@@ -310,26 +309,26 @@ nav a:hover{color:var(--plum)}
         <div class="prose">
           <p>Developed and launched a machine learning-based churn prediction capability to identify customers at risk of disengagement. Translated business objectives into predictive analytics capabilities, working with data science and business teams to operationalize customer intelligence and contribute to a 10% reduction in churn.</p>
         </div>
-        <p class="label muted stack">Focus</p>
-        <p>Predictive Modelling · Customer Analytics · Machine Learning · Model Evaluation · Data-driven Decisioning</p>
+        <div class="grp"><p class="label muted">Focus</p>
+          <p>Predictive Modelling · Customer Analytics · Machine Learning · Model Evaluation · Data-driven Decisioning</p></div>
       </article>
       <article>
         <h3>Enterprise Master Data Management</h3>
         <div class="prose">
           <p>Led the 0-to-1 development of an enterprise master data platform for capital markets. Designed the product architecture and data capabilities to address fragmented enterprise information through standardized taxonomies, spend analytics and intelligent data quality. Took the product from market assessment and customer discovery through MVP development and executive validation.</p>
         </div>
-        <p class="label muted stack">Architecture</p>
-        <p>Enterprise Data Architecture · Master Data Management · Data Taxonomy · Data Quality · Spend Analytics · SaaS</p>
+        <div class="grp"><p class="label muted">Architecture</p>
+          <p>Enterprise Data Architecture · Master Data Management · Data Taxonomy · Data Quality · Spend Analytics · SaaS</p></div>
       </article>
       <article>
         <h3>DoughJo | AI Personal Finance Advisor</h3>
         <div class="prose">
           <p>Built a conversational AI application that connects financial data with personalized financial guidance. Integrated Plaid to access financial account data and used LLMs to translate that context into conversational insights and recommendations.</p>
         </div>
-        <p class="label muted stack">Architecture</p>
-        <p>Financial Data Integration · Conversational AI · LLM-powered Insights · Personalized Recommendations</p>
-        <p class="label muted stack">Technology</p>
-        <p>Plaid · OpenRouter · Supabase</p>
+        <div class="grp"><p class="label muted">Architecture</p>
+          <p>Financial Data Integration · Conversational AI · LLM-powered Insights · Personalized Recommendations</p></div>
+        <div class="grp"><p class="label muted">Technology</p>
+          <p>Plaid · OpenRouter · Supabase</p></div>
         <p class="case-link"><a class="ln" href="https://www.youtube.com/watch?v=xkPi_3iBvSE" target="_blank" rel="noopener">Watch the demo</a><a class="ln" href="https://github.com/divu112311/DoughJo11" target="_blank" rel="noopener">View on GitHub</a></p>
       </article>
       <article>
@@ -337,10 +336,10 @@ nav a:hover{color:var(--plum)}
         <div class="prose">
           <p>Developed an AI-powered safety navigation prototype exploring how contextual information can support safer travel decisions. Led customer research, product strategy and end-to-end prototyping, integrating mapping capabilities to create a safety-oriented navigation experience.</p>
         </div>
-        <p class="label muted stack">Architecture</p>
-        <p>Location Intelligence · Mapping APIs · AI-powered Navigation · Rapid Prototyping</p>
-        <p class="label muted stack">Technology</p>
-        <p>Google Maps APIs</p>
+        <div class="grp"><p class="label muted">Architecture</p>
+          <p>Location Intelligence · Mapping APIs · AI-powered Navigation · Rapid Prototyping</p></div>
+        <div class="grp"><p class="label muted">Technology</p>
+          <p>Google Maps APIs</p></div>
         <p class="case-link"><a class="ln" href="https://www.youtube.com/watch?v=jQsnqQxGAns" target="_blank" rel="noopener">Watch the demo</a><a class="ln" href="https://github.com/divu112311/midnight-stride-safe" target="_blank" rel="noopener">View on GitHub</a></p>
       </article>
     </div>
