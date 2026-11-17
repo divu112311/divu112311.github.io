@@ -114,12 +114,13 @@ nav a:hover{color:var(--plum)}
 .bullets li::before{content:"";position:absolute;left:0;top:.72em;width:6px;height:6px;border-radius:50%;background:var(--plum)}
 .bullets strong{font-weight:600}
 .case-link{margin-top:48px}
-.more{display:grid;grid-template-columns:repeat(3,1fr);gap:48px}
-.more article{display:flex;flex-direction:column}
+.more{display:grid;grid-template-columns:repeat(6,1fr);grid-auto-rows:1fr;gap:32px}
+.more article{grid-column:span 2;display:flex;flex-direction:column;background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);padding:32px}
+.more article:nth-child(4){grid-column:2 / span 2}
 .more .case-link{margin-top:auto;padding-top:24px}
 .case-link a + a{margin-left:24px}
 .more h3{min-height:2.6em}
-@media (max-width:1000px){.more{grid-template-columns:1fr 1fr}}
+@media (max-width:1000px){.more{grid-template-columns:repeat(4,1fr)}.more article:nth-child(4){grid-column:span 2}.more article:nth-child(5){grid-column:2 / span 2}}
 .more .label{margin-bottom:8px}
 .more .lead{margin-top:8px}
 .more .prose{margin-top:16px}
@@ -188,7 +189,8 @@ nav a:hover{color:var(--plum)}
   header .container{height:68px}
   .intro,.row,.case-grid,.case-grid.three,.more,.two,.split,.split.hack,.split.mentor,.duo{grid-template-columns:1fr}
   .case-grid.three{gap:32px}
-  .more{gap:48px}
+  .more{gap:24px;grid-auto-rows:auto}
+  .more article,.more article:nth-child(4),.more article:nth-child(5){grid-column:auto;padding:24px}
   .more h3{min-height:0}
   .intro{gap:40px}
   .portrait{max-width:360px}
