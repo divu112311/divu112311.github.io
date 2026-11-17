@@ -86,8 +86,28 @@
   .lede{color:var(--ink-soft);margin-bottom:30px}
   .band .lede{color:var(--on-plum-soft)}
 
-  /* talks & community */
-  .item{display:grid;grid-template-columns:150px 1fr;gap:24px;padding:22px 0;border-top:1px solid var(--line)}
+  /* speaking */
+  .block{margin-top:40px}
+  .block-head{display:flex;align-items:baseline;gap:14px;margin-bottom:22px}
+  .block-head .num{font-family:Lora,Georgia,serif;color:var(--plum-mid);font-size:1rem;letter-spacing:.08em}
+  .block-head h3{font-family:Lora,Georgia,serif;font-weight:600;font-size:1.6rem;color:var(--ink)}
+  .talks{display:grid;grid-template-columns:1fr 1fr;gap:32px;margin-bottom:48px}
+  .shots{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+  .shot{display:block;border-radius:12px;overflow:hidden;aspect-ratio:16/10;background:var(--paper-2);cursor:zoom-in}
+  .shot.big{grid-column:1/-1;aspect-ratio:4/3;border-radius:16px}
+  .shot img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .4s ease}
+  .shot:hover img{transform:scale(1.03)}
+  .talk .where{margin-top:16px;font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;font-weight:600;color:var(--plum)}
+  .talk h4{font-family:Lora,Georgia,serif;font-weight:600;font-size:1.3rem;line-height:1.3;margin-top:4px;color:var(--ink)}
+  .talk .post{display:inline-block;margin-top:10px;font-size:.92rem;font-weight:600;color:var(--plum);text-underline-offset:4px;text-decoration-color:var(--lilac-2)}
+  @media(max-width:760px){.talks{grid-template-columns:1fr;gap:40px}}
+
+  /* photo viewer */
+  .viewer{position:fixed;inset:0;z-index:50;background:rgba(20,6,18,.9);display:none;align-items:center;justify-content:center;padding:24px;cursor:zoom-out}
+  .viewer.open{display:flex}
+  .viewer img{max-width:100%;max-height:100%;border-radius:10px;box-shadow:0 20px 60px rgba(0,0,0,.5)}
+
+  /* talks & community */  .item{display:grid;grid-template-columns:150px 1fr;gap:24px;padding:22px 0;border-top:1px solid var(--line)}
   .item:last-child{border-bottom:1px solid var(--line)}
   .badge{align-self:start;justify-self:start;font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;font-weight:600;color:var(--plum);background:var(--lilac);padding:4px 11px;border-radius:999px;margin-top:4px}
   .item h3{font-family:Lora,Georgia,serif;font-size:1.25rem;font-weight:600;line-height:1.35}
@@ -215,14 +235,32 @@
 <section id="talks">
   <div class="wrap">
     <h2>Talks & community</h2>
-    <p class="lede">Speaking, mentoring founders and teaching product across the Bay Area startup ecosystem.</p>
-    <div class="item">
-      <span class="badge">Speaker</span>
-      <div><h3>Plug and Play</h3><p>AI in Enterprise: Reinventing Non-Tech Giants.</p></div>
-    </div>
-    <div class="item">
-      <span class="badge">Speaker</span>
-      <div><h3>Brazilian Chamber of Commerce</h3></div>
+    <p class="lede">Contributing to the technology ecosystem through speaking, mentoring, teaching and engaging with emerging builders.</p>
+
+    <div class="block">
+      <div class="block-head"><span class="num">01</span><h3>Speaking</h3></div>
+      <div class="talks">
+        <article class="talk">
+          <div class="shots">
+            <a class="shot big" href="photos/speaking/pnp-stage.jpg"><img src="photos/speaking/pnp-stage.jpg" alt="Divya speaking on stage at Plug and Play" style="object-position:62% 40%" loading="lazy"></a>
+            <a class="shot" href="photos/speaking/pnp-poster.jpg"><img src="photos/speaking/pnp-poster.jpg" alt="AI in Enterprise panel speakers poster" style="object-position:88% 50%" loading="lazy"></a>
+            <a class="shot" href="photos/speaking/pnp-group.jpg"><img src="photos/speaking/pnp-group.jpg" alt="Panelists with the audience at Plug and Play" style="object-position:50% 75%" loading="lazy"></a>
+          </div>
+          <p class="where">Plug and Play · Bay Area</p>
+          <h4>AI in Enterprise: Reinventing Non-Tech Giants</h4>
+          <a class="post" href="https://lnkd.in/p/gXWdmFhP" target="_blank" rel="noopener">Read the LinkedIn post ↗</a>
+        </article>
+        <article class="talk">
+          <div class="shots">
+            <a class="shot big" href="photos/speaking/brazil-speaking.jpg"><img src="photos/speaking/brazil-speaking.jpg" alt="Divya speaking on the Accelerating Innovation with AI panel" style="object-position:50% 40%" loading="lazy"></a>
+            <a class="shot" href="photos/speaking/brazil-panel.jpg"><img src="photos/speaking/brazil-panel.jpg" alt="Panelists in front of the Accelerating Innovation with AI screen" loading="lazy"></a>
+            <a class="shot" href="photos/speaking/brazil-poster.jpg"><img src="photos/speaking/brazil-poster.jpg" alt="Accelerating Innovation with AI panel poster" style="object-position:50% 30%" loading="lazy"></a>
+          </div>
+          <p class="where">Brazilian Chamber of Commerce · New York</p>
+          <h4>Accelerating Innovation with AI</h4>
+          <a class="post" href="https://lnkd.in/p/grdf9Br4" target="_blank" rel="noopener">Read the LinkedIn post ↗</a>
+        </article>
+      </div>
     </div>
     <div class="item">
       <span class="badge">Mentor</span>
@@ -253,7 +291,19 @@
   </div>
 </footer>
 
+<div class="viewer" role="dialog" aria-label="Photo"><img alt=""></div>
+
 <script>
+  // Click a talk photo to see it full size; click anywhere or press Esc to close.
+  (function () {
+    const v = document.querySelector('.viewer'), vi = v.querySelector('img');
+    document.querySelectorAll('a.shot').forEach(a => a.addEventListener('click', e => {
+      e.preventDefault(); vi.src = a.href; vi.alt = a.querySelector('img').alt; v.classList.add('open');
+    }));
+    const close = () => v.classList.remove('open');
+    v.addEventListener('click', close);
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') close(); });
+  })();
   document.getElementById('y').textContent = new Date().getFullYear();
 
 </script>
