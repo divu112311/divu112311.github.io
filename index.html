@@ -123,6 +123,16 @@
   .judged-list{font-family:Lora,Georgia,serif;font-weight:600;font-size:1.2rem;line-height:1.45;margin-top:4px;color:var(--ink)}
   @media(max-width:760px){.collage{grid-template-columns:1fr 1fr}.collage .shot.big{grid-row:auto;aspect-ratio:4/3}}
 
+  /* events & community */
+  .block-lede{color:var(--ink-soft);margin:-8px 0 20px}
+  .events{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+  .event .shot{aspect-ratio:4/3}
+  .event .where{margin-top:14px;font-size:.76rem;letter-spacing:.12em;text-transform:uppercase;font-weight:600;color:var(--plum)}
+  .event .what{font-family:Lora,Georgia,serif;font-weight:600;font-size:1.05rem;line-height:1.35;margin-top:4px;color:var(--ink)}
+  .posts{margin-top:8px;font-size:.88rem;font-weight:600;color:var(--ink-soft)}
+  .posts a{color:var(--plum);text-underline-offset:4px;text-decoration-color:var(--lilac-2);margin-right:8px}
+  @media(max-width:900px){.events{grid-template-columns:1fr 1fr}}
+
   /* photo viewer */
   .viewer{position:fixed;inset:0;z-index:50;background:rgba(20,6,18,.9);display:none;align-items:center;justify-content:center;padding:24px;cursor:zoom-out}
   .viewer.open{display:flex}
@@ -310,8 +320,41 @@
       </div>
       <p class="where judged">Judging and evaluating emerging ideas</p>
       <h4 class="judged-list">Venture Miner · Coeus Collective · Flow · Brooklan · The Graph · 3% Club · MLH</h4>
-    </div>  </div>
+      <p class="posts">LinkedIn posts: <a href="https://lnkd.in/p/gSgAHE98" target="_blank" rel="noopener">1 ↗</a> <a href="https://lnkd.in/p/gB8FAv23" target="_blank" rel="noopener">2 ↗</a></p>
+    </div>
+
+    <div class="block">
+      <div class="block-head"><span class="num">05</span><h3>Events &amp; Community</h3></div>
+      <p class="block-lede">In the rooms where Silicon Valley's AI builders and founders meet.</p>
+      <div class="events">
+        <article class="event">
+          <a class="shot" href="photos/events/get-yc-ready.jpg"><img src="photos/events/get-yc-ready.jpg" alt="Group photo at the Get YC Ready event in San Francisco" loading="lazy"></a>
+          <p class="where">Get YC Ready · San Francisco</p>
+          <p class="what">With YC founders on application guidance</p>
+          <p class="posts"><a href="https://lnkd.in/p/gJqB8W_R" target="_blank" rel="noopener">LinkedIn post ↗</a> <a href="https://lnkd.in/p/gTQNhZKt" target="_blank" rel="noopener">2 ↗</a></p>
+        </article>
+        <article class="event">
+          <a class="shot" href="photos/events/lovable-fireside.jpg"><img src="photos/events/lovable-fireside.jpg" alt="Fireside chat on stage at the Lovable meetup" loading="lazy"></a>
+          <p class="where">Lovable</p>
+          <p class="what">Fireside with Lovable's founder</p>
+          <p class="posts"><a href="https://lnkd.in/p/gSxah5Yx" target="_blank" rel="noopener">LinkedIn post ↗</a></p>
+        </article>
+        <article class="event">
+          <a class="shot" href="photos/events/lovable-community.jpg"><img src="photos/events/lovable-community.jpg" alt="Builders at the Lovable meetup" style="object-position:50% 45%" loading="lazy"></a>
+          <p class="where">Lovable</p>
+          <p class="what">Builder community meetup</p>
+        </article>
+        <article class="event">
+          <a class="shot" href="photos/events/all-code-ballpark.jpg"><img src="photos/events/all-code-ballpark.jpg" alt="All Code community social at the ballpark" loading="lazy"></a>
+          <p class="where">All Code</p>
+          <p class="what">Community social at the ballpark</p>
+          <p class="posts"><a href="https://lnkd.in/p/gxvv439i" target="_blank" rel="noopener">LinkedIn post ↗</a></p>
+        </article>
+      </div>
+    </div>
+  </div>
 </section>
+
 <footer id="contact">
   <div class="wrap">
     <h2>Let's talk</h2>
