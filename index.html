@@ -114,12 +114,13 @@ nav a:hover{color:var(--plum)}
 .bullets li::before{content:"";position:absolute;left:0;top:.72em;width:6px;height:6px;border-radius:50%;background:var(--plum)}
 .bullets strong{font-weight:600}
 .case-link{margin-top:48px}
-.more{display:grid;grid-template-columns:1fr 1fr;gap:72px;margin-top:var(--block);padding-top:var(--block);border-top:1px solid var(--line)}
+.more{display:grid;grid-template-columns:repeat(3,1fr);gap:48px}
+.more article{display:flex;flex-direction:column}
+.more .case-link{margin-top:auto;padding-top:24px}
 .more .label{margin-bottom:8px}
 .more .lead{margin-top:8px}
 .more .prose{margin-top:16px}
 .more .stack{margin-top:24px}
-.more .case-link{margin-top:24px}
 
 /* ---- talks & community ---- */
 .block + .block{margin-top:var(--block)}
@@ -286,31 +287,18 @@ nav a:hover{color:var(--plum)}
     <div class="sh">
       <h2>Selected projects</h2>
     </div>
-    <article>
-      <div class="case-head measure">
+    <div class="more">
+      <article>
+        <p class="label">Startup</p>
         <h3>Corduroy</h3>
-        <p class="lead">Agentic AI for Trade Compliance</p>
+        <p class="lead">Agentic AI for trade compliance</p>
         <div class="prose">
           <p>An agentic AI platform for HS/HTS classification, designed to help trade professionals navigate complex product classification and regulatory requirements.</p>
         </div>
-      </div>
-      <div class="case-grid three">
-        <div class="group">
-          <p class="label">AI capabilities</p>
-          <p>Agentic workflows · RAG · Product attribute extraction · Regulatory research · Grounded classification</p>
-        </div>
-        <div class="group">
-          <p class="label">Architecture &amp; technology</p>
-          <p>Python · OpenAI APIs · Pinecone · Supabase · React/Next.js · Google Cloud</p>
-        </div>
-        <div class="group">
-          <p class="label">Evaluation</p>
-          <p>Classification accuracy · Attribute-level validation · Source-grounded recommendations · Tool execution traces · Abstention on uncertain cases</p>
-        </div>
-      </div>
-      <p class="case-link"><a class="ln" href="https://corduroyai.vercel.app" target="_blank" rel="noopener">See the product</a></p>
-    </article>
-    <div class="more">
+        <p class="label muted stack">Built with</p>
+        <p>Python · OpenAI APIs · Pinecone · Supabase · React/Next.js · Google Cloud</p>
+        <p class="case-link"><a class="ln" href="https://corduroyai.vercel.app" target="_blank" rel="noopener">See the product</a></p>
+      </article>
       <article>
         <p class="label">Google Maps Hackathon</p>
         <h3>Midnight Mile</h3>
