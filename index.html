@@ -114,6 +114,12 @@ nav a:hover{color:var(--plum)}
 .bullets li::before{content:"";position:absolute;left:0;top:.72em;width:6px;height:6px;border-radius:50%;background:var(--plum)}
 .bullets strong{font-weight:600}
 .case-link{margin-top:48px}
+.more{display:grid;grid-template-columns:1fr 1fr;gap:72px;margin-top:var(--block);padding-top:var(--block);border-top:1px solid var(--line)}
+.more .label{margin-bottom:8px}
+.more .lead{margin-top:8px}
+.more .prose{margin-top:16px}
+.more .stack{margin-top:24px}
+.more .case-link{margin-top:24px}
 
 /* ---- talks & community ---- */
 .block + .block{margin-top:var(--block)}
@@ -176,8 +182,9 @@ nav a:hover{color:var(--plum)}
   nav{gap:18px}
   .logo{height:44px}
   header .container{height:68px}
-  .intro,.row,.case-grid,.case-grid.three,.two,.split,.split.hack,.split.mentor,.duo{grid-template-columns:1fr}
+  .intro,.row,.case-grid,.case-grid.three,.more,.two,.split,.split.hack,.split.mentor,.duo{grid-template-columns:1fr}
   .case-grid.three{gap:32px}
+  .more{gap:48px}
   .intro{gap:40px}
   .portrait{max-width:360px}
   .row{gap:12px;padding:32px 0}
@@ -303,6 +310,30 @@ nav a:hover{color:var(--plum)}
       </div>
       <p class="case-link"><a class="ln" href="https://corduroyai.vercel.app" target="_blank" rel="noopener">See the product</a></p>
     </article>
+    <div class="more">
+      <article>
+        <p class="label">Google Maps Hackathon</p>
+        <h3>Midnight Mile</h3>
+        <p class="lead">A women's safety companion for walking home at night</p>
+        <div class="prose">
+          <p>Suggests safer walking routes, surfaces nearby safe spots such as hospitals and 24/7 stores, keeps you company with an AI voice companion, and lets trusted contacts know when you arrive, or when you don't.</p>
+        </div>
+        <p class="label muted stack">Built with</p>
+        <p>React · TypeScript · Vite · Tailwind CSS · Geolocation API</p>
+        <p class="case-link"><a class="ln" href="https://github.com/divu112311/midnight-stride-safe" target="_blank" rel="noopener">View on GitHub</a></p>
+      </article>
+      <article>
+        <p class="label">Bolt Hackathon</p>
+        <h3>DoughJo</h3>
+        <p class="lead">An AI money sensei for personal finance</p>
+        <div class="prose">
+          <p>An AI finance coach that connects to real bank accounts through Plaid, gives advice based on actual spending and goals, and turns building money habits into a game with XP, badges and belt ranks.</p>
+        </div>
+        <p class="label muted stack">Built with</p>
+        <p>React · TypeScript · Supabase · Plaid · LLMs via OpenRouter</p>
+        <p class="case-link"><a class="ln" href="https://github.com/divu112311/DoughJo11" target="_blank" rel="noopener">View on GitHub</a></p>
+      </article>
+    </div>
   </div>
 </section>
 
