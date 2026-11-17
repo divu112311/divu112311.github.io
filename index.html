@@ -115,7 +115,16 @@
   .mention .by{display:block;font-size:.88rem;color:var(--ink-soft);margin-top:2px}
   @media(max-width:760px){.pair{grid-template-columns:1fr}}
 
-  /* photo viewer */  .viewer{position:fixed;inset:0;z-index:50;background:rgba(20,6,18,.9);display:none;align-items:center;justify-content:center;padding:24px;cursor:zoom-out}
+  /* hackathons collage */
+  .collage{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+  .collage .shot{aspect-ratio:4/3}
+  .collage .shot.big{grid-column:span 2;grid-row:span 2;aspect-ratio:auto}
+  .judged{margin-top:16px;font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;font-weight:600;color:var(--plum)}
+  .judged-list{font-family:Lora,Georgia,serif;font-weight:600;font-size:1.2rem;line-height:1.45;margin-top:4px;color:var(--ink)}
+  @media(max-width:760px){.collage{grid-template-columns:1fr 1fr}.collage .shot.big{grid-row:auto;aspect-ratio:4/3}}
+
+  /* photo viewer */
+  .viewer{position:fixed;inset:0;z-index:50;background:rgba(20,6,18,.9);display:none;align-items:center;justify-content:center;padding:24px;cursor:zoom-out}
   .viewer.open{display:flex}
   .viewer img{max-width:100%;max-height:100%;border-radius:10px;box-shadow:0 20px 60px rgba(0,0,0,.5)}
 
@@ -290,11 +299,18 @@
         <p class="where">Product Gym · Product Management Instructor</p>
         <p>Teaching AI product management: agents, MCP and RAG.</p>
       </div>
-    </div>    <div class="item">
-      <span class="badge">Judge</span>
-      <div><h3>Hackathons</h3><p>Ventureminer, Coeus Collective, Flow, Brooklan, The Graph and 3% Club.</p></div>
-    </div>
-  </div>
+    </div>    <div class="block">
+      <div class="block-head"><span class="num">04</span><h3>Hackathons &amp; Judging</h3></div>
+      <div class="collage">
+        <a class="shot big" href="photos/judging/brooklan.jpg"><img src="photos/judging/brooklan.jpg" alt="Judges and builders at the Brooklan hackathon" loading="lazy"></a>
+        <a class="shot" href="photos/judging/vibe-pitch-day-judges.jpg"><img src="photos/judging/vibe-pitch-day-judges.jpg" alt="Vibe Pitch Day judges, including Divya" style="object-position:50% 88%" loading="lazy"></a>
+        <a class="shot" href="photos/judging/nyc-judges.jpg"><img src="photos/judging/nyc-judges.jpg" alt="Divya with fellow judges at a New York hackathon" style="object-position:40% 50%" loading="lazy"></a>
+        <a class="shot" href="photos/judging/nyc-hackathon.jpg"><img src="photos/judging/nyc-hackathon.jpg" alt="Teams building during a New York hackathon" loading="lazy"></a>
+        <a class="shot" href="photos/judging/nyc-teams.jpg"><img src="photos/judging/nyc-teams.jpg" alt="Hackathon teams at work" style="object-position:50% 35%" loading="lazy"></a>
+      </div>
+      <p class="where judged">Judging and evaluating emerging ideas</p>
+      <h4 class="judged-list">Venture Miner · Coeus Collective · Flow · Brooklan · The Graph · 3% Club · MLH</h4>
+    </div>  </div>
 </section>
 <footer id="contact">
   <div class="wrap">
