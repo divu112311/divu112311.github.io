@@ -104,7 +104,11 @@
 
   /* mentorship + teaching */
   .pair{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-bottom:48px}
-  .card{background:var(--paper-2);border:1px solid var(--line);border-radius:18px;padding:30px}
+  .card{background:var(--paper-2);border:1px solid var(--line);border-radius:18px;padding:30px;display:flex;flex-direction:column}
+  .card .mention{margin-top:auto}
+  .card > p:not(.where){margin-bottom:20px}
+  div.mention{cursor:default}
+  div.mention:hover{box-shadow:none;border-color:var(--line);border-left-color:var(--plum)}
   .card .block-head{margin-bottom:14px}
   .card .where{font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;font-weight:600;color:var(--plum);margin-bottom:8px}
   .card p{color:var(--ink-soft)}
@@ -125,13 +129,22 @@
 
   /* events & community */
   .block-lede{color:var(--ink-soft);margin:-8px 0 20px}
-  .events{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
-  .event .shot{aspect-ratio:4/3}
+  .events{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+  .slides{position:relative;aspect-ratio:4/3;border-radius:12px;overflow:hidden;background:var(--paper-2)}
+  .slides .shot{position:absolute;inset:0;border-radius:0;aspect-ratio:auto;opacity:0;transition:opacity .8s ease;pointer-events:none}
+  .slides .shot.on{opacity:1;pointer-events:auto}
+  .slide-dots{position:absolute;left:0;right:0;bottom:10px;display:flex;gap:6px;justify-content:center;z-index:2}
+  .slide-dots button{width:7px;height:7px;border-radius:999px;border:0;padding:0;cursor:pointer;background:rgba(255,255,255,.55);transition:.3s}
+  .slide-dots button.on{width:20px;background:#fff}
+  .event h4{font-family:Lora,Georgia,serif;font-weight:600;font-size:1.2rem;margin-top:14px}
+  .event h4 a{color:var(--ink);text-decoration:none}
+  .event h4 a:hover{color:var(--plum)}
+  .event .what{font-family:Inter,system-ui,sans-serif;font-weight:400;font-size:.95rem;color:var(--ink-soft);margin-top:2px}
   .event .where{margin-top:14px;font-size:.76rem;letter-spacing:.12em;text-transform:uppercase;font-weight:600;color:var(--plum)}
   .event .what{font-family:Lora,Georgia,serif;font-weight:600;font-size:1.05rem;line-height:1.35;margin-top:4px;color:var(--ink)}
   .posts{margin-top:8px;font-size:.88rem;font-weight:600;color:var(--ink-soft)}
   .posts a{color:var(--plum);text-underline-offset:4px;text-decoration-color:var(--lilac-2);margin-right:8px}
-  @media(max-width:900px){.events{grid-template-columns:1fr 1fr}}
+  @media(max-width:760px){.events{grid-template-columns:1fr}}
 
   /* photo viewer */
   .viewer{position:fixed;inset:0;z-index:50;background:rgba(20,6,18,.9);display:none;align-items:center;justify-content:center;padding:24px;cursor:zoom-out}
@@ -278,8 +291,8 @@
             <a class="shot" href="photos/speaking/pnp-group.jpg"><img src="photos/speaking/pnp-group.jpg" alt="Panelists with the audience at Plug and Play" style="object-position:50% 75%" loading="lazy"></a>
           </div>
           <p class="where">Plug and Play · Bay Area</p>
-          <h4>AI in Enterprise: Reinventing Non-Tech Giants</h4>
-          <a class="post" href="https://lnkd.in/p/gXWdmFhP" target="_blank" rel="noopener">Read the LinkedIn post ↗</a>
+          <h4>AI in Enterprise</h4>
+          <a class="post" href="https://lnkd.in/p/gXWdmFhP" target="_blank" rel="noopener">Panel highlights ↗</a>
         </article>
         <article class="talk">
           <div class="shots">
@@ -289,7 +302,7 @@
           </div>
           <p class="where">Brazilian Chamber of Commerce · New York</p>
           <h4>Accelerating Innovation with AI</h4>
-          <a class="post" href="https://lnkd.in/p/grdf9Br4" target="_blank" rel="noopener">Read the LinkedIn post ↗</a>
+          <a class="post" href="https://lnkd.in/p/grdf9Br4" target="_blank" rel="noopener">Panel highlights ↗</a>
         </article>
       </div>
     </div>
@@ -297,19 +310,26 @@
       <div class="card">
         <div class="block-head"><span class="num">02</span><h3>Startup Mentorship</h3></div>
         <p class="where">swissnex · Startup Mentor</p>
-        <p>Supporting early-stage founders on product strategy, customer discovery and building a startup.</p>
+        <p>Guiding early-stage founders on product strategy and customer discovery.</p>
         <a class="mention" href="https://www.linkedin.com/pulse/experience-report-outpost-silicon-valley-manuel-meinen-3auee/" target="_blank" rel="noopener">
           <span class="tag">Mention</span>
-          <span class="t">Experience Report: Outpost Silicon Valley</span>
-          <span class="by">Manuel Meinen · LinkedIn ↗</span>
+          <span class="t">Outpost Silicon Valley report</span>
+          <span class="by">Manuel Meinen ↗</span>
         </a>
       </div>
       <div class="card">
         <div class="block-head"><span class="num">03</span><h3>Teaching</h3></div>
-        <p class="where">Product Gym · Product Management Instructor</p>
-        <p>Teaching AI product management: agents, MCP and RAG.</p>
+        <p class="where">Product Gym · Product Management</p>
+        <p>Teaching product managers how to build with AI, from idea to launch.</p>
+        <div class="mention">
+          <span class="tag">Topics</span>
+          <span class="t">Agents, MCP and RAG</span>
+          <span class="by">AI product management</span>
+        </div>
       </div>
-    </div>    <div class="block">
+    </div>
+
+    <div class="block">
       <div class="block-head"><span class="num">04</span><h3>Hackathons &amp; Judging</h3></div>
       <div class="collage">
         <a class="shot big" href="photos/judging/brooklan.jpg"><img src="photos/judging/brooklan.jpg" alt="Judges and builders at the Brooklan hackathon" loading="lazy"></a>
@@ -328,27 +348,29 @@
       <p class="block-lede">In the rooms where Silicon Valley's AI builders and founders meet.</p>
       <div class="events">
         <article class="event">
-          <a class="shot" href="photos/events/get-yc-ready.jpg"><img src="photos/events/get-yc-ready.jpg" alt="Group photo at the Get YC Ready event in San Francisco" loading="lazy"></a>
-          <p class="where">Get YC Ready · San Francisco</p>
+          <div class="slides">
+            <a class="shot on" href="photos/events/get-yc-ready.jpg"><img src="photos/events/get-yc-ready.jpg" alt="Group photo at the Get YC Ready event in San Francisco"></a>
+            <a class="shot" href="photos/events/get-yc-ready-2.jpg"><img src="photos/events/get-yc-ready-2.jpg" alt="Divya at the Get YC Ready event" loading="lazy"></a>
+          </div>
+          <h4><a href="https://lnkd.in/p/gJqB8W_R" target="_blank" rel="noopener">Get YC Ready ↗</a></h4>
           <p class="what">With YC founders on application guidance</p>
-          <p class="posts"><a href="https://lnkd.in/p/gJqB8W_R" target="_blank" rel="noopener">LinkedIn post ↗</a> <a href="https://lnkd.in/p/gTQNhZKt" target="_blank" rel="noopener">2 ↗</a></p>
         </article>
         <article class="event">
-          <a class="shot" href="photos/events/lovable-fireside.jpg"><img src="photos/events/lovable-fireside.jpg" alt="Fireside chat on stage at the Lovable meetup" loading="lazy"></a>
-          <p class="where">Lovable</p>
+          <div class="slides">
+            <a class="shot on" href="photos/events/lovable-fireside.jpg"><img src="photos/events/lovable-fireside.jpg" alt="Fireside chat on stage at the Lovable meetup"></a>
+            <a class="shot" href="photos/events/lovable-community.jpg"><img src="photos/events/lovable-community.jpg" alt="Builders at the Lovable meetup" style="object-position:50% 45%" loading="lazy"></a>
+            <a class="shot" href="photos/events/lovable-divya.jpg"><img src="photos/events/lovable-divya.jpg" alt="Divya at the Lovable meetup" style="object-position:50% 40%" loading="lazy"></a>
+          </div>
+          <h4><a href="https://lnkd.in/p/gSxah5Yx" target="_blank" rel="noopener">Lovable ↗</a></h4>
           <p class="what">Fireside with Lovable's founder</p>
-          <p class="posts"><a href="https://lnkd.in/p/gSxah5Yx" target="_blank" rel="noopener">LinkedIn post ↗</a></p>
         </article>
         <article class="event">
-          <a class="shot" href="photos/events/lovable-community.jpg"><img src="photos/events/lovable-community.jpg" alt="Builders at the Lovable meetup" style="object-position:50% 45%" loading="lazy"></a>
-          <p class="where">Lovable</p>
-          <p class="what">Builder community meetup</p>
-        </article>
-        <article class="event">
-          <a class="shot" href="photos/events/all-code-ballpark.jpg"><img src="photos/events/all-code-ballpark.jpg" alt="All Code community social at the ballpark" loading="lazy"></a>
-          <p class="where">All Code</p>
+          <div class="slides">
+            <a class="shot on" href="photos/events/all-code-ballpark.jpg"><img src="photos/events/all-code-ballpark.jpg" alt="All Code community social at the ballpark"></a>
+            <a class="shot" href="photos/events/all-code-social.jpg"><img src="photos/events/all-code-social.jpg" alt="All Code community social" loading="lazy"></a>
+          </div>
+          <h4><a href="https://lnkd.in/p/gxvv439i" target="_blank" rel="noopener">All Code ↗</a></h4>
           <p class="what">Community social at the ballpark</p>
-          <p class="posts"><a href="https://lnkd.in/p/gxvv439i" target="_blank" rel="noopener">LinkedIn post ↗</a></p>
         </article>
       </div>
     </div>
@@ -372,6 +394,21 @@
 <div class="viewer" role="dialog" aria-label="Photo"><img alt=""></div>
 
 <script>
+  // Event photo carousels: fade through each event's photos, with dots; pause on hover.
+  document.querySelectorAll('.slides').forEach(box => {
+    const shots = [...box.querySelectorAll('.shot')];
+    if (shots.length < 2) return;
+    const dots = document.createElement('div'); dots.className = 'slide-dots';
+    let i = 0, timer;
+    const show = n => { i = (n + shots.length) % shots.length; shots.forEach((s, k) => s.classList.toggle('on', k === i)); [...dots.children].forEach((d, k) => d.classList.toggle('on', k === i)); };
+    shots.forEach((_, k) => { const b = document.createElement('button'); b.setAttribute('aria-label', 'Show photo ' + (k + 1)); b.onclick = () => { show(k); start(); }; dots.appendChild(b); });
+    box.appendChild(dots);
+    const start = () => { clearInterval(timer); if (!matchMedia('(prefers-reduced-motion: reduce)').matches) timer = setInterval(() => show(i + 1), 3500); };
+    box.addEventListener('mouseenter', () => clearInterval(timer));
+    box.addEventListener('mouseleave', start);
+    show(0); start();
+  });
+
   // Click a talk photo to see it full size; click anywhere or press Esc to close.
   (function () {
     const v = document.querySelector('.viewer'), vi = v.querySelector('img');
