@@ -106,6 +106,8 @@ nav a:hover{color:var(--plum)}
 .case-grid{display:grid;grid-template-columns:7fr 5fr;gap:72px;margin-top:56px;padding-top:48px;border-top:1px solid var(--line)}
 .case-grid .label{margin-bottom:16px}
 .case-grid .group + .group{margin-top:40px}
+.case-grid.three{grid-template-columns:repeat(3,1fr);gap:48px}
+.case-grid.three .group + .group{margin-top:0}
 .bullets{list-style:none;margin-top:16px}
 .bullets li{position:relative;padding-left:20px}
 .bullets li + li{margin-top:10px}
@@ -174,7 +176,8 @@ nav a:hover{color:var(--plum)}
   nav{gap:18px}
   .logo{height:44px}
   header .container{height:68px}
-  .intro,.row,.case-grid,.two,.split,.split.hack,.split.mentor,.duo{grid-template-columns:1fr}
+  .intro,.row,.case-grid,.case-grid.three,.two,.split,.split.hack,.split.mentor,.duo{grid-template-columns:1fr}
+  .case-grid.three{gap:32px}
   .intro{gap:40px}
   .portrait{max-width:360px}
   .row{gap:12px;padding:32px 0}
@@ -232,16 +235,11 @@ nav a:hover{color:var(--plum)}
     <div class="rows">
       <div class="row">
         <div>
-          <p class="label">Co-founder</p>
+          <p class="label">Co-founder &amp; CTO</p>
           <h3>Corduroy AI</h3>
         </div>
-        <div>
-          <p class="small">Co-founder | AI &amp; Trade Compliance</p>
-          <div class="prose">
-            <p>I co-founded Corduroy AI to rethink how trade compliance professionals handle product classification and regulatory complexity.</p>
-            <p>I drove the journey from identifying the problem to validating it with the market and building the product. This involved more than 100 conversations with customs brokers, freight forwarders and compliance professionals, translating their workflows and pain points into product requirements, defining the product architecture and working hands-on on the AI implementation.</p>
-            <p>We took the product from an early concept to a working MVP and two pilot customers.</p>
-          </div>
+        <div class="prose">
+          <p>Co-founded an AI startup focused on transforming global trade compliance. Led the venture from customer discovery to MVP, drawing on 100+ conversations with customs brokers and freight forwarders to shape the product, technology strategy and initial pilot engagements.</p>
         </div>
       </div>
       <div class="row"><div><h3>Peet's Coffee</h3></div><div></div></div>
@@ -259,40 +257,24 @@ nav a:hover{color:var(--plum)}
     </div>
     <article>
       <div class="case-head measure">
-        <h3>Corduroy AI</h3>
-        <p class="lead">Building an AI-native trade compliance platform</p>
+        <h3>Corduroy</h3>
+        <p class="lead">Agentic AI for Trade Compliance</p>
         <div class="prose">
-          <p>Trade compliance is a domain where a seemingly simple product classification decision can require interpreting complex product attributes, regulatory rules and authoritative reference data.</p>
-          <p>Corduroy AI was built around this challenge.</p>
+          <p>An agentic AI platform for HS/HTS classification, designed to help trade professionals navigate complex product classification and regulatory requirements.</p>
         </div>
       </div>
-      <div class="case-grid">
+      <div class="case-grid three">
         <div class="group">
-          <p class="label">Product approach</p>
-          <div class="prose">
-            <p>Rather than relying on an LLM to generate classification codes, we designed a system that grounded decisions in retrieved classification and regulatory data.</p>
-            <p>The product brought together:</p>
-          </div>
-          <ul class="bullets">
-            <li><strong>RAG:</strong> Retrieved relevant classification references to ground model outputs.</li>
-            <li><strong>Attribute extraction:</strong> Identified product characteristics needed to make classification decisions.</li>
-            <li><strong>Agent workflows:</strong> Coordinated specialised tasks across the classification process.</li>
-            <li><strong>Tools:</strong> Enabled retrieval, structured data processing and validation.</li>
-            <li><strong>Grounded responses:</strong> Connected classification outputs to supporting references.</li>
-          </ul>
+          <p class="label">AI capabilities</p>
+          <p>Agentic workflows · RAG · Product attribute extraction · Regulatory research · Grounded classification</p>
         </div>
-        <div>
-          <div class="group">
-            <p class="label">Technical architecture</p>
-            <p>Python, OpenAI APIs, Pinecone, Supabase, React/Next.js and GCP.</p>
-          </div>
-          <div class="group">
-            <p class="label">Evaluation</p>
-            <div class="prose">
-              <p>We evaluated the system against verified reference classifications, achieving over 90% accuracy in testing. We also assessed attribute extraction quality, tool selection, execution success, workflow completion and the grounding of supporting references.</p>
-              <p>The product progressed from customer discovery to MVP development and two pilot customers.</p>
-            </div>
-          </div>
+        <div class="group">
+          <p class="label">Architecture &amp; technology</p>
+          <p>Python · OpenAI APIs · Pinecone · Supabase · React/Next.js · Google Cloud</p>
+        </div>
+        <div class="group">
+          <p class="label">Evaluation</p>
+          <p>Classification accuracy · Attribute-level validation · Source-grounded recommendations · Tool execution traces · Abstention on uncertain cases</p>
         </div>
       </div>
       <p class="case-link"><a class="ln" href="https://corduroyai.vercel.app" target="_blank" rel="noopener">See the product</a></p>
