@@ -253,7 +253,8 @@
   .tc-other{margin-top:16px;font-size:.94rem;color:var(--ink-soft)}
   .tc-other span{color:var(--ink);font-weight:500}
   /* speaking v2: large + smaller photo, each with its entry */
-  .tc-speak-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:28px;align-items:start}
+  .tc-speak-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);grid-template-rows:auto auto;grid-auto-flow:column;column-gap:28px;align-items:start}
+  .tc-speak-grid .tc-speak-item{display:contents}
   .tc-speak-grid .tc-ar{aspect-ratio:3/2}
   .tc-speak-grid a[href*="pnp-stage"] img{object-position:50% 75%}
   .tc-speak-item{margin:0}
@@ -263,7 +264,8 @@
   .tc-row2{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,.75fr) minmax(0,2fr);gap:10px;margin-top:10px;align-items:start}
   .tc-row2 .tc-hack-text{margin-top:0;padding-left:18px}
   @media(max-width:760px){
-    .tc-speak-grid{grid-template-columns:1fr;gap:24px}
+    .tc-speak-grid{grid-template-columns:1fr;grid-template-rows:none;grid-auto-flow:row;column-gap:0}
+    .tc-speak-grid .tc-speak-item .tc-entry{margin-bottom:24px}
     .tc-row2{grid-template-columns:.8fr .75fr}
     .tc-row2 .tc-hack-text{grid-column:1/-1;padding-left:0;margin-top:14px}
   }
