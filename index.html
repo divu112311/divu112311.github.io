@@ -118,6 +118,8 @@ nav a:hover{color:var(--plum)}
 .more article{display:flex;flex-direction:column}
 .more .case-link{margin-top:auto;padding-top:24px}
 .case-link a + a{margin-left:24px}
+.more h3{min-height:2.6em}
+@media (max-width:1000px){.more{grid-template-columns:1fr 1fr}}
 .more .label{margin-bottom:8px}
 .more .lead{margin-top:8px}
 .more .prose{margin-top:16px}
@@ -187,6 +189,7 @@ nav a:hover{color:var(--plum)}
   .intro,.row,.case-grid,.case-grid.three,.more,.two,.split,.split.hack,.split.mentor,.duo{grid-template-columns:1fr}
   .case-grid.three{gap:32px}
   .more{gap:48px}
+  .more h3{min-height:0}
   .intro{gap:40px}
   .portrait{max-width:360px}
   .row{gap:12px;padding:32px 0}
@@ -317,8 +320,7 @@ nav a:hover{color:var(--plum)}
         <p>Enterprise Data Architecture · Master Data Management · Data Taxonomy · Data Quality · Spend Analytics · SaaS</p>
       </article>
       <article>
-        <h3>DoughJo</h3>
-        <p class="lead">AI Personal Finance Advisor</p>
+        <h3>DoughJo | AI Personal Finance Advisor</h3>
         <div class="prose">
           <p>Built a conversational AI application that connects financial data with personalized financial guidance. Integrated Plaid to access financial account data and used LLMs to translate that context into conversational insights and recommendations.</p>
         </div>
@@ -329,8 +331,7 @@ nav a:hover{color:var(--plum)}
         <p class="case-link"><a class="ln" href="https://www.youtube.com/watch?v=xkPi_3iBvSE" target="_blank" rel="noopener">Watch the demo</a><a class="ln" href="https://github.com/divu112311/DoughJo11" target="_blank" rel="noopener">View on GitHub</a></p>
       </article>
       <article>
-        <h3>Midnight Mile</h3>
-        <p class="lead">AI Safety Navigation</p>
+        <h3>Midnight Mile | AI Safety Navigation</h3>
         <div class="prose">
           <p>Developed an AI-powered safety navigation prototype exploring how contextual information can support safer travel decisions. Led customer research, product strategy and end-to-end prototyping, integrating mapping capabilities to create a safety-oriented navigation experience.</p>
         </div>
