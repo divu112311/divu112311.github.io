@@ -288,6 +288,16 @@
     .tc-hack-gallery .ph[style*="--ar:0.8"],.tc-hack-gallery .ph[style*="--ar:0.75"]{width:75%;align-self:center}
   }
 
+  /* closing photo strip: full-bleed, each photo at its own width with one shared height (no cropping) */
+  #talks{overflow-x:clip}
+  .tc-strip{width:100vw;margin:56px 0 0 calc(50% - 50vw);overflow-x:auto;overflow-y:hidden;scrollbar-width:none;-webkit-overflow-scrolling:touch;cursor:grab}
+  .tc-strip::-webkit-scrollbar{display:none}
+  .tc-strip.dragging{cursor:grabbing}
+  .tc-strip-track{display:flex;gap:12px;width:max-content}
+  .tc-strip img{height:clamp(170px,22vw,300px);width:auto;aspect-ratio:var(--ar);object-fit:cover;display:block;border-radius:6px;user-select:none;opacity:.94;transition:opacity .4s ease}
+  .tc-strip img:hover{opacity:1}
+  @media(max-width:760px){.tc-strip img{height:205px}.tc-strip{margin-top:40px}}
+
   /* teaching + events */
   .tc-compact{display:grid;grid-template-columns:1fr 1.4fr;gap:48px;padding-top:40px;border-top:1px solid var(--line)}
   .tc-events{list-style:none;margin:0;padding:0}
@@ -505,7 +515,32 @@
         </ul>
       </div>
     </div>
-  </div>
+    <!-- Closing photo strip: slow continuous loop, pauses on hover, scrollable by hand/touch -->
+    <div class="tc-strip" aria-label="Photos from talks, judging and community events">
+      <div class="tc-strip-track">
+        <img src="photos/speaking/pnp-group.jpg" alt="Panelists and audience at Plug and Play" style="--ar:1.091" loading="lazy" draggable="false">
+        <img src="photos/events/get-yc-ready.jpg" alt="Group photo at Get YC Ready" style="--ar:1.333" loading="lazy" draggable="false">
+        <img src="photos/judging/nyc-judges.jpg" alt="Divya with fellow hackathon judges in New York" style="--ar:1.333" loading="lazy" draggable="false">
+        <img src="photos/events/lovable-fireside.jpg" alt="Fireside chat at the Lovable meetup" style="--ar:1.333" loading="lazy" draggable="false">
+        <img src="photos/speaking/brazil-panel.jpg" alt="Panelists at the Brazilian-American Chamber of Commerce" style="--ar:1.778" loading="lazy" draggable="false">
+        <img src="photos/swissnex-pier17.jpg" alt="Swissnex at Pier 17, San Francisco" style="--ar:1.333" loading="lazy" draggable="false">
+        <img src="photos/events/all-code-ballpark.jpg" alt="AllCode community gathering at the SF Giants game" style="--ar:1.333" loading="lazy" draggable="false">
+        <img src="photos/events/get-yc-ready-2.jpg" alt="Divya at Get YC Ready" style="--ar:1.333" loading="lazy" draggable="false">
+        <img src="photos/speaking/pnp-poster.jpg" alt="AI in Enterprise panel at Plug and Play" style="--ar:1.778" loading="lazy" draggable="false">
+        <img src="photos/events/all-code-social.jpg" alt="AllCode community social" style="--ar:1.333" loading="lazy" draggable="false">
+        <img src="photos/speaking/pnp-group.jpg" alt="" aria-hidden="true" style="--ar:1.091" loading="lazy" draggable="false">
+        <img src="photos/events/get-yc-ready.jpg" alt="" aria-hidden="true" style="--ar:1.333" loading="lazy" draggable="false">
+        <img src="photos/judging/nyc-judges.jpg" alt="" aria-hidden="true" style="--ar:1.333" loading="lazy" draggable="false">
+        <img src="photos/events/lovable-fireside.jpg" alt="" aria-hidden="true" style="--ar:1.333" loading="lazy" draggable="false">
+        <img src="photos/speaking/brazil-panel.jpg" alt="" aria-hidden="true" style="--ar:1.778" loading="lazy" draggable="false">
+        <img src="photos/swissnex-pier17.jpg" alt="" aria-hidden="true" style="--ar:1.333" loading="lazy" draggable="false">
+        <img src="photos/events/all-code-ballpark.jpg" alt="" aria-hidden="true" style="--ar:1.333" loading="lazy" draggable="false">
+        <img src="photos/events/get-yc-ready-2.jpg" alt="" aria-hidden="true" style="--ar:1.333" loading="lazy" draggable="false">
+        <img src="photos/speaking/pnp-poster.jpg" alt="" aria-hidden="true" style="--ar:1.778" loading="lazy" draggable="false">
+        <img src="photos/events/all-code-social.jpg" alt="" aria-hidden="true" style="--ar:1.333" loading="lazy" draggable="false">
+      </div>
+    </div>
+    </div>
 </section>
 
 <footer id="contact">
@@ -549,6 +584,38 @@
       item.addEventListener('mouseenter', () => { mosaic.classList.add('focus'); tiles.forEach(t => t.classList.add('hl')); });
       item.addEventListener('mouseleave', () => { mosaic.classList.remove('focus'); tiles.forEach(t => t.classList.remove('hl')); });
     });
+  })();
+
+  // Closing photo strip: slow right-to-left loop. The photo set appears twice, so when we pass
+  // the first copy we jump back by its width and the loop is seamless. Pauses on hover and while
+  // the visitor scrolls, drags or swipes it by hand.
+  (function () {
+    const strip = document.querySelector('.tc-strip');
+    if (!strip) return;
+    const track = strip.querySelector('.tc-strip-track');
+    const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const speed = 28; // pixels per second
+    let pos = 0, last = 0, paused = false, resumeAt = 0, dragX = null, dragStart = 0;
+    const half = () => track.scrollWidth / 2;
+    const wrap = () => { const h = half(); if (h > 0) { if (pos >= h) pos -= h; if (pos < 0) pos += h; } };
+    const holdFor = ms => { resumeAt = performance.now() + ms; };
+    function tick(now) {
+      const dt = last ? Math.min(now - last, 100) / 1000 : 0; last = now;
+      if (!reduce && !paused && dragX === null && now >= resumeAt) { pos += speed * dt; wrap(); strip.scrollLeft = pos; }
+      requestAnimationFrame(tick);
+    }
+    strip.addEventListener('mouseenter', () => { paused = true; });
+    strip.addEventListener('mouseleave', () => { paused = false; });
+    // Manual wheel / trackpad / touch scrolling: follow it, keep it looping, resume after a moment.
+    strip.addEventListener('scroll', () => {
+      if (Math.abs(strip.scrollLeft - pos) > 1) { pos = strip.scrollLeft; const before = pos; wrap(); if (pos !== before) strip.scrollLeft = pos; holdFor(1500); }
+    }, { passive: true });
+    strip.addEventListener('touchstart', () => holdFor(4000), { passive: true });
+    // Mouse drag to scroll on desktop.
+    strip.addEventListener('pointerdown', e => { if (e.pointerType !== 'mouse') return; dragX = e.clientX; dragStart = pos; strip.classList.add('dragging'); });
+    window.addEventListener('pointermove', e => { if (dragX === null) return; pos = dragStart - (e.clientX - dragX); wrap(); strip.scrollLeft = pos; });
+    window.addEventListener('pointerup', () => { if (dragX === null) return; dragX = null; strip.classList.remove('dragging'); holdFor(1500); });
+    requestAnimationFrame(tick);
   })();
 
   // Click a talk photo to see it full size; click anywhere or press Esc to close.
