@@ -252,6 +252,20 @@
   .tc-links a:hover{text-decoration:underline;text-underline-offset:4px}
   .tc-other{margin-top:16px;font-size:.94rem;color:var(--ink-soft)}
   .tc-other span{color:var(--ink);font-weight:500}
+  /* speaking v2: large + smaller photo, each with its entry */
+  .tc-speak-grid{display:grid;grid-template-columns:minmax(0,1.55fr) minmax(0,1fr);gap:28px;align-items:start}
+  .tc-speak-item{margin:0}
+  .tc-ar{aspect-ratio:var(--ar)}
+  .tc-speak-item .tc-entry{margin-top:14px}
+  /* judging second row: two smaller photos + text */
+  .tc-row2{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,.75fr) minmax(0,2fr);gap:10px;margin-top:10px;align-items:start}
+  .tc-row2 .tc-hack-text{margin-top:0;padding-left:18px}
+  @media(max-width:760px){
+    .tc-speak-grid{grid-template-columns:1fr;gap:24px}
+    .tc-row2{grid-template-columns:.8fr .75fr}
+    .tc-row2 .tc-hack-text{grid-column:1/-1;padding-left:0;margin-top:14px}
+  }
+
   /* teaching + events */
   .tc-compact{display:grid;grid-template-columns:1fr 1.4fr;gap:48px;padding-top:40px;border-top:1px solid var(--line)}
   .tc-events{list-style:none;margin:0;padding:0}
@@ -400,24 +414,28 @@
     <h2>Talks &amp; Community</h2>
     <p class="lede">Speaking, mentoring founders, teaching product management and contributing to the technology ecosystem.</p>
 
-    <!-- Speaking: large photo + two event entries -->
-    <div class="tc-feature tc-speaking">
-      <a class="shot tc-photo" href="photos/speaking/pnp-stage.jpg"><img src="photos/speaking/pnp-stage.jpg" alt="Divya speaking on the AI in Enterprise panel at Plug and Play" loading="lazy"></a>
-      <div class="tc-text">
-        <h3 class="tc-label">Speaking</h3>
-        <div class="tc-entry">
-          <p class="tc-event"><a href="https://www.linkedin.com/posts/tnakata_what-most-people-dont-understand-about-ai-ugcPost-7362642344812138496-j65l/" target="_blank" rel="noopener">Plug and Play, Bay Area</a></p>
-          <p class="tc-title">AI in Enterprise</p>
-          <p class="tc-role">Panelist</p>
-        </div>
-        <div class="tc-entry">
-          <p class="tc-event"><a href="https://www.linkedin.com/posts/divyamahajan11_thanks-venture-miner-and-matheus-dar%C3%B3s-pagani-share-7366568698716831745-wrMp/" target="_blank" rel="noopener">Brazilian-American Chamber of Commerce, New York</a></p>
-          <p class="tc-title">Accelerating Innovation with AI</p>
-          <p class="tc-role">Speaker</p>
-        </div>
+    <!-- Speaking: large Plug and Play photo + smaller Brazilian-American Chamber photo, each with its entry -->
+    <div class="tc-feature tc-speak2">
+      <h3 class="tc-label">Speaking</h3>
+      <div class="tc-speak-grid">
+        <figure class="tc-speak-item">
+          <a class="shot tc-photo tc-ar" style="--ar:1.332" href="photos/speaking/pnp-stage.jpg"><img src="photos/speaking/pnp-stage.jpg" alt="Divya speaking on the AI in Enterprise panel at Plug and Play" loading="lazy"><span class="tc-cap">Plug and Play</span></a>
+          <figcaption class="tc-entry">
+            <p class="tc-event"><a href="https://www.linkedin.com/posts/tnakata_what-most-people-dont-understand-about-ai-ugcPost-7362642344812138496-j65l/" target="_blank" rel="noopener">Plug and Play, Bay Area</a></p>
+            <p class="tc-title">AI in Enterprise</p>
+            <p class="tc-role">Panelist</p>
+          </figcaption>
+        </figure>
+        <figure class="tc-speak-item">
+          <a class="shot tc-photo tc-ar" style="--ar:1.778" href="photos/speaking/brazil-speaking.jpg"><img src="photos/speaking/brazil-speaking.jpg" alt="Divya speaking on the Accelerating Innovation with AI panel in New York" loading="lazy"><span class="tc-cap">Brazilian-American Chamber</span></a>
+          <figcaption class="tc-entry">
+            <p class="tc-event"><a href="https://www.linkedin.com/posts/divyamahajan11_thanks-venture-miner-and-matheus-dar%C3%B3s-pagani-share-7366568698716831745-wrMp/" target="_blank" rel="noopener">Brazilian-American Chamber of Commerce, New York</a></p>
+            <p class="tc-title">Accelerating Innovation with AI</p>
+            <p class="tc-role">Speaker</p>
+          </figcaption>
+        </figure>
       </div>
     </div>
-
     <!-- Startup Mentorship: photo + text + featured article reference -->
     <div class="tc-feature tc-mentor has-photo">
       <a class="shot tc-photo" href="photos/swissnex-pier17.jpg"><img src="photos/swissnex-pier17.jpg" alt="Swissnex building at Pier 17 in San Francisco, with the Swiss flag" loading="lazy"></a>
@@ -435,7 +453,7 @@
       </div>
     </div>
 
-    <!-- Hackathons & Judging: asymmetric collage + text -->
+    <!-- Hackathons & Judging: large + two medium + two smaller photos, all shown at their own shape -->
     <div class="tc-feature tc-hack">
       <h3 class="tc-label">Hackathons &amp; Judging</h3>
       <div class="tc-collage">
@@ -443,14 +461,17 @@
         <a class="shot tc-small" href="photos/judging/nyc-judges.jpg"><img src="photos/judging/nyc-judges.jpg" alt="Divya with fellow judges at a hackathon in New York" loading="lazy"></a>
         <a class="shot tc-small" href="photos/judging/nyc-hackathon.jpg"><img src="photos/judging/nyc-hackathon.jpg" alt="Teams building their projects during a hackathon in New York" loading="lazy"></a>
       </div>
-      <div class="tc-hack-text">
+      <div class="tc-row2">
+        <a class="shot tc-photo tc-ar" style="--ar:0.8" href="photos/judging/vibe-pitch-day-judges.jpg"><img src="photos/judging/vibe-pitch-day-judges.jpg" alt="Vibe Pitch Day judges announcement, including Divya" loading="lazy"><span class="tc-cap">Vibe Pitch Day</span></a>
+        <a class="shot tc-photo tc-ar" style="--ar:0.75" href="photos/judging/nyc-teams.jpg"><img src="photos/judging/nyc-teams.jpg" alt="Hackathon participants working on their projects" loading="lazy"></a>
+        <div class="tc-hack-text">
         <p class="tc-event">Judge · Vibe Coding Hackathon, New York</p>
         <p class="tc-desc">Invited to evaluate projects at a hackathon bringing together AI, creativity and rapid prototyping.</p>
         <p class="tc-links"><a href="https://www.linkedin.com/posts/divyamahajan11_i-was-invited-by-matheus-dar%C3%B3s-pagani-from-ugcPost-7360506364168687617-JJcg/" target="_blank" rel="noopener">Read about the event →</a><a href="https://www.linkedin.com/posts/were-still-buzzing-from-the-speedrun-in-ugcPost-7361817514336493568-S0Fs/" target="_blank" rel="noopener">Read the event recap →</a></p>
         <p class="tc-other"><span>Other judging and pitch-day engagements:</span> Venture Miner · Coeus Collective · Flow · Brooklan · The Graph · 3% Club · MLH</p>
       </div>
+      </div>
     </div>
-
     <!-- Teaching + Events & Community: two compact text-only columns -->
     <div class="tc-compact">
       <div>
