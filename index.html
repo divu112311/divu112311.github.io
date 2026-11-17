@@ -234,7 +234,7 @@
   .tc-mentor{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:40px;align-items:center}
   .tc-mentor.has-photo{grid-template-columns:minmax(0,1fr) minmax(0,1.1fr)}
   .tc-mentor .tc-photo{aspect-ratio:1.333}
-  .tc-ref{display:block;padding:4px 0 4px 18px;border-left:2px solid var(--plum);text-decoration:none;max-width:360px}
+  .tc-ref{display:block;margin-top:22px;padding:4px 0 4px 18px;border-left:2px solid var(--plum);text-decoration:none;max-width:360px}
   .tc-ref span{display:block}
   .tc-ref-tag{font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;font-weight:600;color:var(--ink-soft)}
   .tc-ref-title{font-family:Lora,Georgia,serif;font-weight:600;font-size:1.05rem;color:var(--ink);margin-top:6px;line-height:1.35}
@@ -418,20 +418,21 @@
       </div>
     </div>
 
-    <!-- Startup Mentorship: text + featured article reference (no swissnex photo available) -->
-    <div class="tc-feature tc-mentor">
+    <!-- Startup Mentorship: photo + text + featured article reference -->
+    <div class="tc-feature tc-mentor has-photo">
+      <a class="shot tc-photo" href="photos/swissnex-pier17.jpg"><img src="photos/swissnex-pier17.jpg" alt="Swissnex building at Pier 17 in San Francisco, with the Swiss flag" loading="lazy"></a>
       <div class="tc-text">
         <h3 class="tc-label">Startup Mentorship</h3>
         <p class="tc-event">Swissnex</p>
         <p class="tc-role">Startup Mentor</p>
         <p class="tc-desc">Supporting early-stage founders through product and startup discussions.</p>
+        <a class="tc-ref" href="https://www.linkedin.com/pulse/experience-report-outpost-silicon-valley-manuel-meinen-3auee/" target="_blank" rel="noopener">
+          <span class="tc-ref-tag">Featured mention</span>
+          <span class="tc-ref-title">Experience Report: Outpost Silicon Valley</span>
+          <span class="tc-ref-by">Manuel Meinen · October 2025</span>
+          <span class="tc-ref-link">Read the experience report →</span>
+        </a>
       </div>
-      <a class="tc-ref" href="https://www.linkedin.com/pulse/experience-report-outpost-silicon-valley-manuel-meinen-3auee/" target="_blank" rel="noopener">
-        <span class="tc-ref-tag">Featured mention</span>
-        <span class="tc-ref-title">Experience Report: Outpost Silicon Valley</span>
-        <span class="tc-ref-by">Manuel Meinen · October 2025</span>
-        <span class="tc-ref-link">Read the experience report →</span>
-      </a>
     </div>
 
     <!-- Hackathons & Judging: asymmetric collage + text -->
